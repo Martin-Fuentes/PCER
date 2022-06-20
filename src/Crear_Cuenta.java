@@ -74,7 +74,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Contraseña:");
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton1.setText("Registrarse");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +84,12 @@ public class Crear_Cuenta extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("<html>¿Ya tienes una cuenta? <a href=\"Iniciar sesión\">Iniciar sesión</a></html>");
+        jLabel6.setText("<html>¿Ya tienes una cuenta? <a href=\"./src/Iniciar_Sesion.java\">Iniciar sesión</a></html>");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +117,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                             .addComponent(jComboBox1, 0, 230, Short.MAX_VALUE)
                             .addComponent(jPasswordField1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addGap(77, 77, 77)
                         .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -137,11 +142,11 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jButton1)
                 .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,6 +168,12 @@ public class Crear_Cuenta extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Iniciar_Sesion().setVisible(true);
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     /**
      * @param args the command line arguments
