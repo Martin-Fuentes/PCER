@@ -99,9 +99,9 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 289, 230, -1));
 
-        jPanel1.setBackground(new java.awt.Color(132, 169, 214));
+        jPanel1.setBackground(new java.awt.Color(244, 242, 227));
 
-        jButton2.setBackground(new java.awt.Color(132, 169, 214));
+        jButton2.setBackground(new java.awt.Color(244, 242, 227));
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 0, 255));
         jButton2.setText("<html><a href=\"./src/Iniciar_Sesion.java\">Iniciar sesión</a></html>");
