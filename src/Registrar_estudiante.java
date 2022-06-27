@@ -104,11 +104,13 @@ public class Registrar_estudiante extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(195, 209, 232));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(59, 74, 107));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
         jButton1.setText("Guardar");
 
         jButton2.setBackground(new java.awt.Color(195, 209, 232));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(59, 74, 107));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
         jButton2.setText("Menú Estudiante");
 
