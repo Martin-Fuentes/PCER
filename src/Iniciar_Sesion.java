@@ -42,7 +42,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 26)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Iniciar sesión");
+        jLabel1.setText("Interfaz iniciar sesión");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, 442, -1));
 
         jLabel2.setBackground(new java.awt.Color(67, 68, 73));
