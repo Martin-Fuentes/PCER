@@ -40,7 +40,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Cédula", "Nombre", "Calificación", "Materia"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
