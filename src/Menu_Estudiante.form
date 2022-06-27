@@ -148,7 +148,7 @@
               <Color blue="6b" green="4a" red="3b" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Men&#xfa; Estudiante"/>
+            <Property name="text" type="java.lang.String" value="Interfaz Men&#xfa; Estudiante"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
