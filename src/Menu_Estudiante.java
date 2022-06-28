@@ -36,10 +36,12 @@ public class Menu_Estudiante extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(156, 154, 163));
+        jButton1.setBackground(new java.awt.Color(195, 209, 232));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(59, 74, 107));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aceptado.png"))); // NOI18N
         jButton1.setText("Aceptar");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 138, 43));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estudiante.png"))); // NOI18N
@@ -50,7 +52,9 @@ public class Menu_Estudiante extends javax.swing.JFrame {
         jRadioButton1.setBackground(new java.awt.Color(195, 209, 232));
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(59, 74, 107));
         jRadioButton1.setText("Registrar estudiante");
+        jRadioButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -60,6 +64,7 @@ public class Menu_Estudiante extends javax.swing.JFrame {
         jRadioButton2.setBackground(new java.awt.Color(195, 209, 232));
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(59, 74, 107));
         jRadioButton2.setText("Actualizar calificación");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,15 +83,14 @@ public class Menu_Estudiante extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(117, 117, 117))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +104,7 @@ public class Menu_Estudiante extends javax.swing.JFrame {
                 .addContainerGap(107, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 310));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
