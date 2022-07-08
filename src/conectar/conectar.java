@@ -22,7 +22,7 @@ public class conectar {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(
-                    "jdbc:mysql://sql5.freesqldatabase.com:3306",
+                    "jdbc:mysql://sql5.freesqldatabase.com:3306/sql5504956",
                     "sql5504956",
                     "5Af7kjiWv2");
             System.out.print("Llegue aqui");
