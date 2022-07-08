@@ -1,5 +1,11 @@
 
+import conectar.conectar;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -186,7 +192,28 @@ public class Crear_Cuenta extends javax.swing.JFrame {
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
-        
+        Connection con=null;  
+        conectar conecta = new conectar();
+         PreparedStatement ps;
+        String sql;
+        con = conecta.getConexion();
+        try{
+            
+            sql = "insert into Prueba(id, Nombre) values(?,?)";
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, 002);
+            ps.setString(2, "Angela Carrión");
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Se han insertado los datos");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Crear_Cuenta.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
      
         
     }//GEN-LAST:event_btnRegistrarseActionPerformed
