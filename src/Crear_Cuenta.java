@@ -192,7 +192,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
-        Connection con=null;  
+        Connection con;  
         conectar conecta = new conectar();
          PreparedStatement ps;
         String sql;
@@ -207,12 +207,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Se han insertado los datos");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Crear_Cuenta.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
      
         
