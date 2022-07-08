@@ -199,7 +199,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         con = conecta.getConexion();
         try{
             
-            sql = "insert into Prueba(id, Nombre) values(?,?)";
+            sql = "insert into prueba(id, Nombre) values(?,?)";
             ps = con.prepareStatement(sql);
             ps.setInt(1, 002);
             ps.setString(2, "Angela Carrión");
