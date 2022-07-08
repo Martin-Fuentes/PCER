@@ -192,15 +192,21 @@ public class Crear_Cuenta extends javax.swing.JFrame {
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
+        
         Connection con;  
         conectar conecta = new conectar();
-         PreparedStatement ps;
+        
+        
         String sql;
+      
         con = conecta.getConexion();
+          
         try{
             
-            sql = "insert into prueba(id, Nombre) values(?,?)";
-            ps = con.prepareStatement(sql);
+            sql = "insert into Prueba(id, Nombre) values(?,?)";
+            
+            PreparedStatement  ps = con.prepareStatement(sql);
+            
             ps.setInt(1, 002);
             ps.setString(2, "Angela Carrión");
             ps.executeUpdate();
