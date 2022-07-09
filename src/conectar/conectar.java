@@ -10,15 +10,18 @@ package conectar;
  */
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class conectar {
 
     public static final String URL = "jdbc:mysql://iq1m0y9u5qaa.us-east-4.psdb.cloud/iptriohato?sslMode=VERIFY_IDENTITY";
     public static final String USER = "sc3guix3nbia";
     public static final String CLAVE = "";
+    
 
     public Connection getConexion() {
         Connection con = null;
+          
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(
@@ -26,7 +29,7 @@ public class conectar {
                     "sql5504956",
                     "5Af7kjiWv2");
             System.out.print("Llegue aqui");
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
         return con;
