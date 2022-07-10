@@ -1,3 +1,11 @@
+
+
+import conectar.conectar;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -106,7 +114,30 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         char[] arrayC = txtPass.getPassword();
         Cedula=txtCedula.getText();
         pass = new String(arrayC);
-        
+        String rol;
+        conectar conecta = new conectar();
+        Connection con = conecta.getConexion();
+        String sql = "Select Rol from Usuario Where Cedula_Usuario = '"+Cedula+"' And Contraseña = '"+pass+"'";
+        try{
+            Statement pst = con.createStatement();
+            ResultSet rs = pst.executeQuery(sql);
+            if(rs.next()){
+                rol=rs.getString("Rol");     
+                if(rol.equals("Secretaria")){
+                    this.setVisible(false);
+                    new Interfaz_Informe().setVisible(true);
+                }else{
+                    this.setVisible(false);
+                    new Menu_Estudiante().setVisible(true);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Error Usuario No encontrado","Message_Iniciar_Sesion",JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        }catch(SQLException e){
+             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+                
+        }
     }//GEN-LAST:event_btnIniciar_SesionActionPerformed
 
     /**
