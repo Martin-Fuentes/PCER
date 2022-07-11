@@ -212,7 +212,7 @@ public class Registrar_estudiante extends javax.swing.JFrame {
                 int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
 
                 if (resp == 0) {
-                    sql = "insert into Estudiante(Cedula_Estudiante, Nombre,Apellido,Teléfono) values(?,?,?,?)";
+                    sql = "insert into Estudiante(Cedula_Estudiante, Nombre,Apellido,Telefono) values(?,?,?,?)";
 
                     PreparedStatement ps = con.prepareStatement(sql);
 
