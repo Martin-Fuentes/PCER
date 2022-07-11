@@ -210,7 +210,9 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 con = conecta.getConexion();
 
                 try {
-
+                     int resp = JOptionPane.showConfirmDialog(null,"¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
+         
+                    if(resp==0){
                     sql = "insert into Usuario(Cedula_Usuario, Nombre,Rol,Contraseña) values(?,?,?,?)";
 
                     PreparedStatement ps = con.prepareStatement(sql);
@@ -220,9 +222,14 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                     ps.setString(3, rol);
                     ps.setString(4, contra);
                     ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Se han insertado los datos");
+                    JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
                     this.setVisible(false);
-                    new Iniciar_Sesion().setVisible(true);
+                    new Iniciar_Sesion().setVisible(true);   
+                    }else{
+                      JOptionPane.showMessageDialog(null, "Puede modificar otra vez");  
+                    }
+
+                    
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
                 }
