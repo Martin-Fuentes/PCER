@@ -1,3 +1,6 @@
+
+import java.awt.event.ActionEvent;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +17,7 @@ public class Interfaz_Informe extends javax.swing.JFrame {
      */
     public Interfaz_Informe() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -35,33 +39,35 @@ public class Interfaz_Informe extends javax.swing.JFrame {
         botonRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(420, 430));
 
         jPanel1.setBackground(new java.awt.Color(244, 242, 227));
+        jPanel1.setMinimumSize(new java.awt.Dimension(420, 430));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tabla-de-datos (1).png"))); // NOI18N
         jButton1.setText("Generar informe Calificación");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 340, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 340, 60));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/frecuencia (1).png"))); // NOI18N
         jButton2.setText("Generar Informe Materia Reprobada");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 340, 60));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 340, 60));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mesa (1).png"))); // NOI18N
         jButton3.setText("Generar Informe Estudiante Rehabilitación");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 340, 60));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 340, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(59, 74, 107));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Interfaz Informe");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 510, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 420, 40));
 
         salir.setBackground(new java.awt.Color(153, 0, 0));
         salir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -85,17 +91,17 @@ public class Interfaz_Informe extends javax.swing.JFrame {
                 botonRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 160, 40));
+        jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
 
         pack();

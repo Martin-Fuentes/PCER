@@ -14,6 +14,7 @@ public class Informe_Calificación extends javax.swing.JFrame {
      */
     public Informe_Calificación() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
