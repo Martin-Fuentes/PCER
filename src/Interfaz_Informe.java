@@ -31,6 +31,8 @@ public class Interfaz_Informe extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        salir = new javax.swing.JButton();
+        botonRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,25 +43,49 @@ public class Interfaz_Informe extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tabla-de-datos (1).png"))); // NOI18N
         jButton1.setText("Generar informe Calificación");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 340, 60));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 340, 60));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/frecuencia (1).png"))); // NOI18N
         jButton2.setText("Generar Informe Materia Reprobada");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 340, 60));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 340, 60));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mesa (1).png"))); // NOI18N
         jButton3.setText("Generar Informe Estudiante Rehabilitación");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 340, 60));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 340, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(59, 74, 107));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Interfaz Informe");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 510, 62));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 510, 40));
+
+        salir.setBackground(new java.awt.Color(153, 0, 0));
+        salir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        salir.setForeground(new java.awt.Color(255, 255, 255));
+        salir.setText("X");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(471, 0, 40, -1));
+
+        botonRegresar.setBackground(new java.awt.Color(59, 74, 107));
+        botonRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        botonRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        botonRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
+        botonRegresar.setText("Regresar");
+        botonRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,6 +100,17 @@ public class Interfaz_Informe extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+        // regresar
+        this.setVisible(false);
+        new Iniciar_Sesion().setVisible(true);
+
+    }//GEN-LAST:event_botonRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,11 +148,13 @@ public class Interfaz_Informe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonRegresar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

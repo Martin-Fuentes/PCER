@@ -35,44 +35,19 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtCedula = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtPass = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         btnIniciar_Sesion = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        txtCedula = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtPass = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(67, 68, 73));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 26)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Interfaz iniciar sesión");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, 442, -1));
-
-        jLabel2.setBackground(new java.awt.Color(67, 68, 73));
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Cédula: ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 61, -1, -1));
-
-        txtCedula.setBackground(new java.awt.Color(240, 240, 248));
-        txtCedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        getContentPane().add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 88, 231, 30));
-
-        jLabel3.setBackground(new java.awt.Color(67, 68, 73));
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 127, -1, -1));
-
-        txtPass.setBackground(new java.awt.Color(240, 240, 248));
-        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 154, 231, 30));
-
-        jPanel1.setBackground(new java.awt.Color(165, 177, 199));
+        jPanel1.setBackground(new java.awt.Color(244, 242, 227));
 
         btnIniciar_Sesion.setBackground(new java.awt.Color(240, 240, 248));
         btnIniciar_Sesion.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
@@ -86,24 +61,81 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(240, 240, 248));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
+        jButton1.setText("Regresar");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        txtCedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+
+        jLabel2.setBackground(new java.awt.Color(59, 74, 107));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(59, 74, 107));
+        jLabel2.setText("Cédula: ");
+
+        jLabel3.setBackground(new java.awt.Color(59, 74, 107));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(59, 74, 107));
+        jLabel3.setText("Contraseña:");
+
+        jLabel1.setBackground(new java.awt.Color(59, 74, 107));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 26)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(59, 74, 107));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Interfaz iniciar sesión");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(284, Short.MAX_VALUE)
-                .addComponent(btnIniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(138, 138, 138)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnIniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)))))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(btnIniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btnIniciar_Sesion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 220));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,6 +171,11 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
                 
         }
     }//GEN-LAST:event_btnIniciar_SesionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+           this.setVisible(false);
+            new Crear_Cuenta().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,6 +214,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar_Sesion;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
