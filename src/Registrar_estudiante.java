@@ -1,3 +1,10 @@
+
+import conectar.conectar;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -107,6 +114,11 @@ public class Registrar_estudiante extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(59, 74, 107));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(195, 209, 232));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -165,6 +177,42 @@ public class Registrar_estudiante extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //FALTA IMPLEMENTAR ESTE CÖDIGO ES EJEMPLO
+        Connection con;
+                conectar conecta = new conectar();
+
+                String sql;
+
+                con = conecta.getConexion();
+
+                try {
+                     int resp = JOptionPane.showConfirmDialog(null,"¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
+         
+                    if(resp==0){
+                    sql = "insert into Usuario(Cedula_Usuario, Nombre,Rol,Contraseña) values(?,?,?,?)";
+
+                    PreparedStatement ps = con.prepareStatement(sql);
+
+                    ps.setString(1, Cedula);
+                    ps.setString(2, nom);
+                    ps.setString(3, rol);
+                    ps.setString(4, contra);
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
+                    this.setVisible(false);
+                    new Iniciar_Sesion().setVisible(true);   
+                    }else{
+                      JOptionPane.showMessageDialog(null, "Puede modificar otra vez");  
+                    }
+
+                    
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+                }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
