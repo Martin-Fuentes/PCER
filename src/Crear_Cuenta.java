@@ -35,10 +35,11 @@ public class Crear_Cuenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        txtNombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
-        txtNombre = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         comboRol = new javax.swing.JComboBox<>();
         txtPass = new javax.swing.JTextField();
@@ -50,11 +51,20 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pngwing.com.png"))); // NOI18N
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(146, 159, 176));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(244, 242, 227));
+
+        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -74,13 +84,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarseActionPerformed(evt);
-            }
-        });
-
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
             }
         });
 
@@ -146,6 +149,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,13 +183,12 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                                 .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(salir))))
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(salir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -194,7 +197,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                    .addComponent(txtCedula))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboRol, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,15 +215,20 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 .addGap(29, 29, 29))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 440));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -430, 380, 870));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new Iniciar_Sesion().setVisible(true);
+    }//GEN-LAST:event_jLabel7MousePressed
 
-    }//GEN-LAST:event_txtNombreActionPerformed
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
@@ -243,23 +251,23 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 con = conecta.getConexion();
 
                 try {
-                    int resp = JOptionPane.showConfirmDialog(null,"Los datos ingresados no se pueden volver a cambiar\n ¿Esta seguro que desea continuar?", "Advertencia", JOptionPane.YES_NO_OPTION);         
+                    int resp = JOptionPane.showConfirmDialog(null,"Los datos ingresados no se pueden volver a cambiar\n ¿Esta seguro que desea continuar?", "Advertencia", JOptionPane.YES_NO_OPTION);
                     if(resp==0){
-                    sql = "insert into Usuario(Cedula_Usuario, Nombre,Rol,Contraseña) values(?,?,?,?)";
+                        sql = "insert into Usuario(Cedula_Usuario, Nombre,Rol,Contraseña) values(?,?,?,?)";
 
-                    PreparedStatement ps = con.prepareStatement(sql);
+                        PreparedStatement ps = con.prepareStatement(sql);
 
-                    ps.setString(1, Cedula);
-                    ps.setString(2, nom);
-                    ps.setString(3, rol);
-                    ps.setString(4, contra);
-                    ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
-                    this.setVisible(false);
-                    new Iniciar_Sesion().setVisible(true);   
+                        ps.setString(1, Cedula);
+                        ps.setString(2, nom);
+                        ps.setString(3, rol);
+                        ps.setString(4, contra);
+                        ps.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
+                        this.setVisible(false);
+                        new Iniciar_Sesion().setVisible(true);
                     }else{
-                      JOptionPane.showMessageDialog(null, "Puede modificar otra vez");  
-                    }             
+                        JOptionPane.showMessageDialog(null, "Puede modificar otra vez");
+                    }
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
                 }
@@ -269,8 +277,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Hay campos por completar", "Message_incompleto", JOptionPane.INFORMATION_MESSAGE);
         }
-
-
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -279,15 +285,9 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         new Iniciar_Sesion().setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
-
-    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new Iniciar_Sesion().setVisible(true);
-    }//GEN-LAST:event_jLabel7MousePressed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
@@ -338,6 +338,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton salir;
     private javax.swing.JTextField txtCedula;
