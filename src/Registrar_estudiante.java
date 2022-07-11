@@ -192,37 +192,7 @@ public class Registrar_estudiante extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //FALTA IMPLEMENTAR ESTE CÖDIGO ES EJEMPLO
-        Connection con;
-                conectar conecta = new conectar();
-
-                String sql;
-
-                con = conecta.getConexion();
-
-                try {
-                     int resp = JOptionPane.showConfirmDialog(null,"¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
-         
-                    if(resp==0){
-                    sql = "insert into Usuario(Cedula_Usuario, Nombre,Rol,Contraseña) values(?,?,?,?)";
-
-                    PreparedStatement ps = con.prepareStatement(sql);
-
-                    ps.setString(1, Cedula);
-                    ps.setString(2, nom);
-                    ps.setString(3, rol);
-                    ps.setString(4, contra);
-                    ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
-                    this.setVisible(false);
-                    new Iniciar_Sesion().setVisible(true);   
-                    }else{
-                      JOptionPane.showMessageDialog(null, "Puede modificar otra vez");  
-                    }
-
-                    
-                } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
-                }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
