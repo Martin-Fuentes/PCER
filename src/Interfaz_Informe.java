@@ -98,7 +98,7 @@ public class Interfaz_Informe extends javax.swing.JFrame {
         });
         jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 160, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sin título-1.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondointerfaces.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

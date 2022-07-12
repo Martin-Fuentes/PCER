@@ -75,8 +75,6 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 145, 45));
-
-        txtCedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 125, 231, 30));
 
         jLabel2.setBackground(new java.awt.Color(59, 74, 107));
@@ -99,7 +97,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         jLabel1.setText("Interfaz iniciar sesión");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 50));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sin título-1.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondointerfaces.jpg"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 430));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 430));

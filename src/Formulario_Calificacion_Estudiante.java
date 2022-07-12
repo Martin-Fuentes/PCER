@@ -36,17 +36,11 @@ String Usuario;
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,6 +48,7 @@ String Usuario;
         jPanel1.setBackground(new java.awt.Color(244, 242, 227));
         jPanel1.setLayout(null);
 
+        jTable1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -70,9 +65,9 @@ String Usuario;
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(17, 83, 533, 302);
 
-        jButton2.setBackground(new java.awt.Color(195, 209, 232));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(61, 55, 47));
+        jButton2.setBackground(new java.awt.Color(49, 73, 109));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
         jButton2.setText("Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -83,9 +78,9 @@ String Usuario;
         jPanel1.add(jButton2);
         jButton2.setBounds(117, 400, 130, 36);
 
-        jButton1.setBackground(new java.awt.Color(195, 209, 232));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(61, 55, 47));
+        jButton1.setBackground(new java.awt.Color(49, 73, 109));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprobar.png"))); // NOI18N
         jButton1.setText("Aceptar");
         jPanel1.add(jButton1);
@@ -95,48 +90,21 @@ String Usuario;
         jPanel1.add(jLabel5);
         jLabel5.setBounds(6, 472, 24, 24);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(75, 415, 24, 24);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(61, 55, 47));
+        jLabel1.setBackground(new java.awt.Color(49, 73, 109));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(49, 73, 109));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Formulario Calificación Estudiante");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(107, 13, 290, 50);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/portapapeles.png"))); // NOI18N
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(403, 13, 32, 64);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(77, 42, 24, 35);
+        jLabel1.setBounds(70, 20, 380, 50);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
         jPanel1.add(jLabel7);
         jLabel7.setBounds(538, 0, 24, 24);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(441, 42, 38, 35);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(488, 407, 24, 35);
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(538, 469, 24, 35);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(0, 0, 24, 24);
-
-        jButton3.setBackground(new java.awt.Color(195, 209, 232));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(61, 55, 47));
+        jButton3.setBackground(new java.awt.Color(49, 73, 109));
+        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         jButton3.setText("Eliminar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -147,13 +115,17 @@ String Usuario;
         jPanel1.add(jButton3);
         jButton3.setBounds(117, 454, 130, 36);
 
-        jButton4.setBackground(new java.awt.Color(195, 209, 232));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(61, 55, 47));
+        jButton4.setBackground(new java.awt.Color(49, 73, 109));
+        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardararchivo .png"))); // NOI18N
         jButton4.setText("Guardar");
         jPanel1.add(jButton4);
         jButton4.setBounds(313, 454, 133, 36);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/nuevinform.jpg"))); // NOI18N
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(0, 0, 570, 500);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 510));
 
@@ -209,15 +181,9 @@ String Usuario;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
