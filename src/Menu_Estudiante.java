@@ -8,12 +8,13 @@
  * @author Martin Fuentes
  */
 public class Menu_Estudiante extends javax.swing.JFrame {
-
+String Usuario;
     /**
      * Creates new form Menu_Estudiante
      */
-    public Menu_Estudiante() {
+    public Menu_Estudiante(String Usuario) {
         initComponents();
+        this.Usuario=Usuario;
     }
 
     /**
@@ -137,10 +138,10 @@ public class Menu_Estudiante extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      if(botonRegistrar.isSelected()){
      this.setVisible(false);
-     new Registrar_estudiante().setVisible(true); 
+     new Registrar_estudiante(Usuario).setVisible(true); 
     }else if(botonActualizar.isSelected()){
      this.setVisible(false);
-     new ActualizarCalificación().setVisible(true); 
+     new ActualizarCalificación(Usuario).setVisible(true); 
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -178,7 +179,7 @@ public class Menu_Estudiante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu_Estudiante().setVisible(true);
+                
             }
         });
     }

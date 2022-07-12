@@ -8,12 +8,13 @@
  * @author Martin Fuentes
  */
 public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
-
+String Usuario;
     /**
      * Creates new form Formulario_Calificacion_Estudiante
      */
-    public Formulario_Calificacion_Estudiante() {
+    public Formulario_Calificacion_Estudiante(String Usuario) {
         initComponents();
+        this.Usuario=Usuario;
     }
 
     /**
@@ -255,7 +256,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Formulario_Calificacion_Estudiante().setVisible(true);
+                
             }
         });
     }

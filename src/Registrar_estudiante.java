@@ -14,13 +14,15 @@ import javax.swing.JOptionPane;
  * @author Martin Fuentes
  */
 public class Registrar_estudiante extends javax.swing.JFrame {
-
+String Usuario;
     /**
      * Creates new form Registrar_estudiante
      */
-    public Registrar_estudiante() {
+    public Registrar_estudiante(String Usuario) {
         initComponents();
+        this.Usuario=Usuario;
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -185,7 +187,7 @@ public class Registrar_estudiante extends javax.swing.JFrame {
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         //regresar
         this.setVisible(false);
-        new Menu_Estudiante().setVisible(true);
+        new Menu_Estudiante(Usuario).setVisible(true);
     }//GEN-LAST:event_regresarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -265,7 +267,7 @@ public class Registrar_estudiante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registrar_estudiante().setVisible(true);
+                
             }
         });
     }

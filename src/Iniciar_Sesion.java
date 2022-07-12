@@ -160,7 +160,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
                     new Interfaz_Informe().setVisible(true);
                 }else{
                     this.setVisible(false);
-                    new Menu_Estudiante().setVisible(true);
+                    new Menu_Estudiante(Cedula).setVisible(true);
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Error Usuario No encontrado","Message_Iniciar_Sesion",JOptionPane.INFORMATION_MESSAGE);

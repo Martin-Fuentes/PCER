@@ -1,3 +1,10 @@
+
+import conectar.conectar;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,12 +15,13 @@
  * @author Martin Fuentes
  */
 public class ActualizarCalificación extends javax.swing.JFrame {
-
+String Usuario;
     /**
      * Creates new form Calificación
      */
-    public ActualizarCalificación() {
+    public ActualizarCalificación(String Usuario) {
         initComponents();
+        this.Usuario=Usuario;
     }
 
     /**
@@ -190,7 +198,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // regresar
           this.setVisible(false);
-          new Menu_Estudiante().setVisible(true); 
+          new Menu_Estudiante(Usuario).setVisible(true); 
         
     }//GEN-LAST:event_botonRegresarActionPerformed
 
@@ -200,6 +208,34 @@ public class ActualizarCalificación extends javax.swing.JFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
+         Connection con;
+            conectar conecta = new conectar();
+
+            String sql;
+
+            con = conecta.getConexion();
+
+            try {
+                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
+
+                if (resp == 0) {
+                    sql = "insert into Calificacion_Materia(Cedula_Estudiante, Nombre,Apellido,Telefono) values(?,?,?,?)";
+
+                    PreparedStatement ps = con.prepareStatement(sql);
+
+                    //ps.setString(1, Cedula);
+                   // ps.setString(2, nom);
+                   // ps.setString(3, ape);
+                   // ps.setInt(4, tel);
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Puede modificar otra vez");
+                }
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+            }
     }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void txtMateria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMateria1ActionPerformed
@@ -237,7 +273,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ActualizarCalificación().setVisible(true);
+               
             }
         });
     }
