@@ -152,8 +152,7 @@ String Usuario;
         jPanel2.add(jLabel1);
         jLabel1.setBounds(50, 30, 249, 50);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sin título-1.jpg"))); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondointerfaces.jpg"))); // NOI18N
         jPanel2.add(jLabel8);
         jLabel8.setBounds(-4, -4, 420, 430);
 

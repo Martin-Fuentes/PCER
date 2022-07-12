@@ -74,7 +74,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 jLabel8MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 80, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 80, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -84,7 +84,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 jLabel7MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
         btnRegistrarse.setBackground(new java.awt.Color(49, 73, 109));
         btnRegistrarse.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -97,7 +97,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 btnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, 40));
+        jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 140, 40));
 
         salir.setBackground(new java.awt.Color(153, 0, 0));
         salir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -109,12 +109,12 @@ public class Crear_Cuenta extends javax.swing.JFrame {
             }
         });
         jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 0, 40, -1));
-        jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 140, 30));
+        jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(59, 74, 107));
         jLabel6.setText("Contraseña:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, 30));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, 30));
 
         comboRol.setBackground(new java.awt.Color(170, 88, 14));
         comboRol.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,8 +133,8 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 80, 30));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 160, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sin título-1.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondointerfaces.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
