@@ -75,8 +75,6 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 145, 45));
-
-        txtCedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 125, 231, 30));
 
         jLabel2.setBackground(new java.awt.Color(59, 74, 107));

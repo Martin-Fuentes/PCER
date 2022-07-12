@@ -75,9 +75,9 @@ String Usuario;
         jPanel2.add(txtTelef);
         txtTelef.setBounds(116, 264, 230, 30);
 
-        btnGuardar.setBackground(new java.awt.Color(195, 209, 232));
+        btnGuardar.setBackground(new java.awt.Color(49, 73, 109));
         btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(59, 74, 107));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,9 +88,9 @@ String Usuario;
         jPanel2.add(btnGuardar);
         btnGuardar.setBounds(230, 340, 130, 48);
 
-        regresar.setBackground(new java.awt.Color(195, 209, 232));
+        regresar.setBackground(new java.awt.Color(49, 73, 109));
         regresar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        regresar.setForeground(new java.awt.Color(59, 74, 107));
+        regresar.setForeground(new java.awt.Color(255, 255, 255));
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
         regresar.setText("Regresar");
         regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,6 @@ String Usuario;
         jPanel2.add(jLabel7);
         jLabel7.setBounds(300, 40, 30, 24);
 
-        txtApellido.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
