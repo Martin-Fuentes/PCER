@@ -2,27 +2,30 @@
 import conectar.conectar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Martin Fuentes
  */
 public class ActualizarCalificación extends javax.swing.JFrame {
-String Usuario;
+
+    String Usuario;
+
     /**
      * Creates new form Calificación
      */
     public ActualizarCalificación(String Usuario) {
         initComponents();
 
-        this.Usuario=Usuario;
+        this.Usuario = Usuario;
 
         this.setLocationRelativeTo(null);
 
@@ -48,9 +51,9 @@ String Usuario;
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtCalific = new javax.swing.JTextField();
-        txtMateria = new javax.swing.JTextField();
+        txtNivel = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtMateria1 = new javax.swing.JTextField();
+        txtMateria = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,9 +101,20 @@ String Usuario;
         jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 110, 40));
 
         txtCedula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCedulaMousePressed(evt);
+            }
+        });
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 87, 183, 31));
 
+        txtNombre.setEditable(false);
         txtNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreMousePressed(evt);
+            }
+        });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 136, 183, 28));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -119,28 +133,43 @@ String Usuario;
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 282, -1, 30));
 
         txtCalific.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(txtCalific, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 283, 158, 30));
-
-        txtMateria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        txtMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMateriaActionPerformed(evt);
+        txtCalific.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCalificMousePressed(evt);
             }
         });
-        jPanel1.add(txtMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 232, 183, 32));
+        jPanel1.add(txtCalific, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 283, 158, 30));
+
+        txtNivel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtNivel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNivelMousePressed(evt);
+            }
+        });
+        txtNivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNivelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 232, 183, 32));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(59, 74, 107));
         jLabel6.setText("Nivel:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 237, -1, -1));
 
-        txtMateria1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        txtMateria1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMateria1ActionPerformed(evt);
+        txtMateria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        txtMateria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtMateriaMousePressed(evt);
             }
         });
-        jPanel1.add(txtMateria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 182, 183, 32));
+        txtMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMateriaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 182, 183, 32));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sin título-1.jpg"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, -1));
@@ -152,50 +181,136 @@ String Usuario;
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // regresar
-          this.setVisible(false);
-          new Menu_Estudiante(Usuario).setVisible(true); 
-        
+        this.setVisible(false);
+        new Menu_Estudiante(Usuario).setVisible(true);
+
     }//GEN-LAST:event_botonRegresarActionPerformed
+
+    private void txtNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNivelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNivelActionPerformed
+
+    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
+        // TODO add your handling code here:
+        if (txtCedula.getText().length() > 2 && cont == 0) {
+            encontrar();
+        }
+        String ced = txtCedula.getText();
+        String cedusu = Usuario;
+        try {
+            double cali = Double.parseDouble(txtCalific.getText());
+            String mat = txtMateria.getText();
+            String Nivel = txtNivel.getText();
+            if (cont2 == 2 && mat.length() > 2 && Nivel.length() > 0) {
+                Connection con;
+                conectar conecta = new conectar();
+
+                String sql;
+
+                con = conecta.getConexion();
+
+                try {
+                    int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
+
+                    if (resp == 0) {
+                        sql = "insert into Calificacion_Materia(Cedula_Estudiante, Cedula_Usuario,Materia,Calificacion,Nivel) values(?,?,?,?,?)";
+
+                        PreparedStatement ps = con.prepareStatement(sql);
+
+                        ps.setString(1, ced);
+                        ps.setString(2, cedusu);
+                        ps.setString(3, mat);
+                        ps.setDouble(4, cali);
+                        ps.setString(5, Nivel);
+                        ps.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Puede modificar otra vez");
+                    }
+
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+                }
+            } else if (ced.length()<=2 || mat.length() <= 2 || Nivel.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Faltan campos por completar");
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Inserte la calificación en formato decimal. Ejem. 5.0");
+        }
+
+    }//GEN-LAST:event_botonGuardarActionPerformed
 
     private void txtMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMateriaActionPerformed
-
-    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
+    int cont = 0;
+    private void txtCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMousePressed
         // TODO add your handling code here:
-         Connection con;
-            conectar conecta = new conectar();
+        cont = 0;
+        cont2 = 0;
+    }//GEN-LAST:event_txtCedulaMousePressed
 
-            String sql;
+    private void txtNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMousePressed
+        // TODO add your handling code here:
 
-            con = conecta.getConexion();
+        if (txtCedula.getText().length() > 2 && cont == 0) {
+            encontrar();
+        }
+    }//GEN-LAST:event_txtNombreMousePressed
 
-            try {
-                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
+    private void txtMateriaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMateriaMousePressed
+        // TODO add your handling code here:
+        if (txtCedula.getText().length() > 2 && cont == 0) {
+            encontrar();
+        }
+    }//GEN-LAST:event_txtMateriaMousePressed
 
-                if (resp == 0) {
-                    sql = "insert into Calificacion_Materia(Cedula_Estudiante, Nombre,Apellido,Telefono) values(?,?,?,?)";
+    private void txtNivelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNivelMousePressed
+        // TODO add your handling code here:
+        if (txtCedula.getText().length() > 2 && cont == 0) {
+            encontrar();
+        }
+    }//GEN-LAST:event_txtNivelMousePressed
 
-                    PreparedStatement ps = con.prepareStatement(sql);
+    private void txtCalificMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCalificMousePressed
+        // TODO add your handling code here:
+        if (txtCedula.getText().length() > 2 && cont == 0) {
+            encontrar();
+        }
+    }//GEN-LAST:event_txtCalificMousePressed
 
-                    //ps.setString(1, Cedula);
-                   // ps.setString(2, nom);
-                   // ps.setString(3, ape);
-                   // ps.setInt(4, tel);
-                    ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Puede modificar otra vez");
-                }
+    int cont2 = 0;
 
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+    public void encontrar() {
+        cont = 1;
+
+        String Cedula, nom, ape;
+        Cedula = txtCedula.getText();
+
+        conectar conecta = new conectar();
+        Connection con = conecta.getConexion();
+        String sql = "Select Nombre, Apellido from Estudiante Where Cedula_Estudiante = '" + Cedula + "'";
+        try {
+            Statement pst = con.createStatement();
+            ResultSet rs = pst.executeQuery(sql);
+            if (rs.next()) {
+                nom = rs.getString("Nombre");
+                ape = rs.getString("Apellido");
+                txtNombre.setText(nom + " " + ape);
+                cont2 = 2;
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Error Estudiante No encontrado, Ingrese la cédula correctamente", "Message No Encontrado", JOptionPane.INFORMATION_MESSAGE);
+                cont2 = 0;
             }
-    }//GEN-LAST:event_botonGuardarActionPerformed
 
-    private void txtMateria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMateria1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMateria1ActionPerformed
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -228,7 +343,7 @@ String Usuario;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-              new Crear_Cuenta().setVisible(true);
+                new ActualizarCalificación("").setVisible(true);
             }
         });
     }
@@ -247,7 +362,7 @@ String Usuario;
     private javax.swing.JTextField txtCalific;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtMateria;
-    private javax.swing.JTextField txtMateria1;
+    private javax.swing.JTextField txtNivel;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

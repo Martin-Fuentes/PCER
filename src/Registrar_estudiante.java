@@ -14,15 +14,16 @@ import javax.swing.JOptionPane;
  * @author Martin Fuentes
  */
 public class Registrar_estudiante extends javax.swing.JFrame {
-String Usuario;
+
+    String Usuario;
+
     /**
      * Creates new form Registrar_estudiante
      */
     public Registrar_estudiante(String Usuario) {
         initComponents();
-        this.Usuario=Usuario;
+        this.Usuario = Usuario;
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -186,41 +187,42 @@ String Usuario;
         int tel = 0;
         try {
             tel = Integer.parseInt(txtTelef.getText());
+            if (Cedula.length() > 5 && nom.length() > 0 && ape.length() > 0 && tel > 0) {
+                Connection con;
+                conectar conecta = new conectar();
+
+                String sql;
+
+                con = conecta.getConexion();
+
+                try {
+                    int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
+
+                    if (resp == 0) {
+                        sql = "insert into Estudiante(Cedula_Estudiante, Nombre,Apellido,Telefono) values(?,?,?,?)";
+
+                        PreparedStatement ps = con.prepareStatement(sql);
+
+                        ps.setString(1, Cedula);
+                        ps.setString(2, nom);
+                        ps.setString(3, ape);
+                        ps.setInt(4, tel);
+                        ps.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Puede modificar otra vez");
+                    }
+
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Faltan campos por llenar", "Message_Datos_Incorrectos", JOptionPane.ERROR_MESSAGE);
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Inserte el teléfono en números");
         }
-        if (Cedula.length() > 5 && nom.length() > 0 && ape.length() > 0 && tel > 0) {
-            Connection con;
-            conectar conecta = new conectar();
 
-            String sql;
-
-            con = conecta.getConexion();
-
-            try {
-                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
-
-                if (resp == 0) {
-                    sql = "insert into Estudiante(Cedula_Estudiante, Nombre,Apellido,Telefono) values(?,?,?,?)";
-
-                    PreparedStatement ps = con.prepareStatement(sql);
-
-                    ps.setString(1, Cedula);
-                    ps.setString(2, nom);
-                    ps.setString(3, ape);
-                    ps.setInt(4, tel);
-                    ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Puede modificar otra vez");
-                }
-
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Faltan campos por llenar","Message_Datos_Incorrectos",JOptionPane.ERROR_MESSAGE);
-        }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -254,7 +256,7 @@ String Usuario;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }
