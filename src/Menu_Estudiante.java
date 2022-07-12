@@ -119,7 +119,7 @@ String Usuario;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      if(botonRegistrar.isSelected()){
      this.setVisible(false);
-     new Registrar_estudiante(Usuario).setVisible(true); 
+      
     }else if(botonActualizar.isSelected()){
      this.setVisible(false);
      new ActualizarCalificación(Usuario).setVisible(true); 

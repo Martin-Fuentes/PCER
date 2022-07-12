@@ -67,7 +67,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 80, 30));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        jLabel8.setText("<html><a href=\"\">Iniciar Sesión</a></html>");
+        jLabel8.setText("<html><a href=\"Crear Cuenta\">Iniciar Sesión</a></html>");
         jLabel8.setToolTipText("");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -201,8 +201,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Iniciar_Sesion().setVisible(true);
+       
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
@@ -242,7 +241,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Crear_Cuenta().setVisible(true);
+                new Iniciar_Sesion().setVisible(true);
             }
         });
     }
