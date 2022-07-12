@@ -58,7 +58,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(59, 74, 107));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Interfaz Calificación");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 15, 420, 45));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 15, 380, 45));
 
         botonGuardar.setBackground(new java.awt.Color(59, 74, 107));
         botonGuardar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -134,7 +134,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sin título-1.jpg"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 430));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
