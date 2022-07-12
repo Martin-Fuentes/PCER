@@ -86,7 +86,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, -1));
 
-        btnRegistrarse.setBackground(new java.awt.Color(99, 127, 151));
+        btnRegistrarse.setBackground(new java.awt.Color(49, 73, 109));
         btnRegistrarse.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnRegistrarse.setForeground(new java.awt.Color(255, 244, 249));
         btnRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/registro.png"))); // NOI18N
@@ -97,7 +97,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                 btnRegistrarseActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, 40));
+        jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, 40));
 
         salir.setBackground(new java.awt.Color(153, 0, 0));
         salir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -109,8 +109,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
             }
         });
         jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 0, 40, -1));
-
-        txtPass.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -119,7 +117,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, 30));
 
         comboRol.setBackground(new java.awt.Color(170, 88, 14));
-        comboRol.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         comboRol.setForeground(new java.awt.Color(255, 255, 255));
         comboRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Secretaria", "Docente" }));
         jPanel1.add(comboRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 160, 30));
@@ -128,16 +125,12 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(59, 74, 107));
         jLabel5.setText("Rol:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 70, 30));
-
-        txtCedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 160, 30));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(59, 74, 107));
         jLabel4.setText("Cédula:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 80, 30));
-
-        txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 160, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sin título-1.jpg"))); // NOI18N
