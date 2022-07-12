@@ -43,6 +43,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        salir = new javax.swing.JButton();
         botonGuardar = new javax.swing.JButton();
         botonRegresar = new javax.swing.JButton();
         txtCedula = new javax.swing.JTextField();
@@ -73,6 +74,17 @@ public class ActualizarCalificación extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Interfaz Calificación");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 15, 380, 45));
+
+        salir.setBackground(new java.awt.Color(153, 0, 0));
+        salir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        salir.setForeground(new java.awt.Color(255, 255, 255));
+        salir.setText("X");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, -1));
 
         botonGuardar.setBackground(new java.awt.Color(59, 74, 107));
         botonGuardar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -280,6 +292,10 @@ public class ActualizarCalificación extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtCalificMousePressed
 
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirActionPerformed
+
     int cont2 = 0;
 
     public void encontrar() {
@@ -359,6 +375,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton salir;
     private javax.swing.JTextField txtCalific;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtMateria;
