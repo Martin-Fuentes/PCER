@@ -30,7 +30,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
          conectar conecta = new conectar();
         Connection con = conecta.getConexion();
-        String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion from Calificacion_Materia Where Cedula_Usuario = '"+Usuario+"' ORDER BY Nivel ASC";
+        String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion,Nivel from Calificacion_Materia Where Cedula_Usuario = '"+Usuario+"' ORDER BY Nivel ASC";
         modelo = new DefaultTableModel();
  
         modelo.addColumn("Cedula");
