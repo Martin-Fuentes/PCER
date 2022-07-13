@@ -36,7 +36,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         modelo.addColumn("Cedula");
         modelo.addColumn("Nombre");
         modelo.addColumn("Nivel");
-        modelo.addColumn("Calificacion");
+        modelo.addColumn("Calificación");
         modelo.addColumn("Materia");
         try{
             Statement pst = con.createStatement();
@@ -46,7 +46,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             while(rs.next()){
                 ced=rs.getString("Cedula_Estudiante");
                 nom=rs.getString("Nombre");
-                cali=rs.getDouble("cali");
+                cali=rs.getDouble("Calificacion");
                 mat=rs.getString("Materia");
                 niv=rs.getString("Nivel");
                  
