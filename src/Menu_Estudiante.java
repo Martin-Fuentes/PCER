@@ -48,7 +48,7 @@ String Usuario;
         botonRegistrar.setBackground(new java.awt.Color(195, 209, 232));
         buttonGroup1.add(botonRegistrar);
         botonRegistrar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        botonRegistrar.setText("Registrar estudiante");
+        botonRegistrar.setText("Ver formulario");
         botonRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +114,8 @@ String Usuario;
 
     private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new Formulario_Calificacion_Estudiante(Usuario).setVisible(true); 
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
