@@ -36,7 +36,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         modelo.addColumn("Cedula");
         modelo.addColumn("Nombre");
         modelo.addColumn("Nivel");
-        modelo.addColumn("Calificación");
+        modelo.addColumn("Calificacion");
         modelo.addColumn("Materia");
         try{
             Statement pst = con.createStatement();
