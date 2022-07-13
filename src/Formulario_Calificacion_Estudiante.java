@@ -221,7 +221,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Formulario_Calificacion_Estudiante("").setVisible(true);
+                new Iniciar_Sesion().setVisible(true);
             }
         });
     }
