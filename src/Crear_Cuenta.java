@@ -182,7 +182,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                         ps.setString(3, rol);
                         ps.setString(4, contra);
                         ps.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
+                        JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");
                         this.setVisible(false);
                         new Iniciar_Sesion().setVisible(true);
                     }else{
