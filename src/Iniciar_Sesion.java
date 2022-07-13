@@ -187,7 +187,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Crear_Cuenta().setVisible(true);
+                new Iniciar_Sesion().setVisible(true);
             }
         });
     }
