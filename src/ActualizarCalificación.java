@@ -108,7 +108,6 @@ public class ActualizarCalificación extends javax.swing.JFrame {
         });
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 87, 183, 31));
 
-        txtNombre.setEditable(false);
         txtNombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -192,16 +191,15 @@ public class ActualizarCalificación extends javax.swing.JFrame {
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         // TODO add your handling code here:
-        if (txtCedula.getText().length() > 2 && cont == 0) {
-            encontrar();
-        }
+        
         String ced = txtCedula.getText();
         String cedusu = Usuario;
+        String nom=txtNombre.getText();
         try {
             double cali = Double.parseDouble(txtCalific.getText());
             String mat = txtMateria.getText();
             String Nivel = txtNivel.getText();
-            if (cont2 == 2 && mat.length() > 2 && Nivel.length() > 0) {
+            if (ced.length()>3 && nom.length()>0 && mat.length() > 2 && Nivel.length() > 0) {
                 Connection con;
                 conectar conecta = new conectar();
 
@@ -231,7 +229,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
                 }
-            } else if (ced.length()<=2 || mat.length() <= 2 || Nivel.length() == 0) {
+            } else{
                 JOptionPane.showMessageDialog(null, "Faltan campos por completar");
             }
 
@@ -244,73 +242,34 @@ public class ActualizarCalificación extends javax.swing.JFrame {
     private void txtMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMateriaActionPerformed
-    int cont = 0;
+
     private void txtCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMousePressed
         // TODO add your handling code here:
-        cont = 0;
-        cont2 = 0;
+    
     }//GEN-LAST:event_txtCedulaMousePressed
 
     private void txtNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMousePressed
-        // TODO add your handling code here:
-
-        if (txtCedula.getText().length() > 2 && cont == 0) {
-            encontrar();
-        }
+        
     }//GEN-LAST:event_txtNombreMousePressed
 
     private void txtMateriaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMateriaMousePressed
         // TODO add your handling code here:
-        if (txtCedula.getText().length() > 2 && cont == 0) {
-            encontrar();
-        }
+      
     }//GEN-LAST:event_txtMateriaMousePressed
 
     private void txtNivelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNivelMousePressed
         // TODO add your handling code here:
-        if (txtCedula.getText().length() > 2 && cont == 0) {
-            encontrar();
-        }
+      
     }//GEN-LAST:event_txtNivelMousePressed
 
     private void txtCalificMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCalificMousePressed
         // TODO add your handling code here:
-        if (txtCedula.getText().length() > 2 && cont == 0) {
-            encontrar();
-        }
+        
     }//GEN-LAST:event_txtCalificMousePressed
 
-    int cont2 = 0;
+   
 
-    public void encontrar() {
-        cont = 1;
-
-        String Cedula, nom, ape;
-        Cedula = txtCedula.getText();
-
-        conectar conecta = new conectar();
-        Connection con = conecta.getConexion();
-        String sql = "Select Nombre, Apellido from Estudiante Where Cedula_Estudiante = '" + Cedula + "'";
-        try {
-            Statement pst = con.createStatement();
-            ResultSet rs = pst.executeQuery(sql);
-            if (rs.next()) {
-                nom = rs.getString("Nombre");
-                ape = rs.getString("Apellido");
-                txtNombre.setText(nom + " " + ape);
-                cont2 = 2;
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Error Estudiante No encontrado, Ingrese la cédula correctamente", "Message No Encontrado", JOptionPane.INFORMATION_MESSAGE);
-                cont2 = 0;
-            }
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
-
-        }
-
-    }
+   
 
     /**
      * @param args the command line arguments
