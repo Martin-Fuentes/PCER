@@ -223,7 +223,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
                     int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
 
                     if (resp == 0) {
-                        sql = "insert into Calificacion_Materia(Cedula_Estudiante, Cedula_Usuario,Materia,Calificacion,Nivel) values(?,?,?,?,?)";
+                        sql = "insert into Calificacion_Materia(Cedula_Estudiante, Cedula_Usuario,Materia,Calificacion,Nivel,Nombre) values(?,?,?,?,?,?)";
 
                         PreparedStatement ps = con.prepareStatement(sql);
 
@@ -232,6 +232,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
                         ps.setString(3, mat);
                         ps.setDouble(4, cali);
                         ps.setString(5, Nivel);
+                        ps.setString(6, nom);
                         ps.executeUpdate();
                         JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
                     } else {

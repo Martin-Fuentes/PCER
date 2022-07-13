@@ -1,24 +1,64 @@
+
+import conectar.conectar;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Martin Fuentes
  */
 public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
-String Usuario;
+
+    String Usuario;
+
     /**
      * Creates new form Formulario_Calificacion_Estudiante
      */
     public Formulario_Calificacion_Estudiante(String Usuario) {
         initComponents();
 
-        this.Usuario=Usuario;
+        this.Usuario = Usuario;
 
         this.setLocationRelativeTo(null);
-
+         conectar conecta = new conectar();
+        Connection con = conecta.getConexion();
+        String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion from Calificacion_Materia Where Cedula_Usuario = '"+Usuario+"' OORDER BY Nivel ASC";
+        modelo = new DefaultTableModel();
+ 
+        modelo.addColumn("Cedula");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Nivel");
+        modelo.addColumn("Calificación");
+        modelo.addColumn("Materia");
+        try{
+            Statement pst = con.createStatement();
+            ResultSet rs = pst.executeQuery(sql);
+            String ced,nom,mat,niv;
+            double cali;
+            while(rs.next()){
+                ced=rs.getString("Cedula_Estudiante");
+                nom=rs.getString("Nombre");
+                cali=rs.getDouble("cali");
+                mat=rs.getString("Materia");
+                niv=rs.getString("Nivel");
+                 
+                modelo.addRow(new Object[]{ced, nom,cali, mat,niv});
+            }
+            
+            
+        }catch(SQLException e){
+             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+                
+        }
+        tablaForm.setModel(modelo);
     }
 
     /**
@@ -32,7 +72,7 @@ String Usuario;
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaForm = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -48,8 +88,8 @@ String Usuario;
         jPanel1.setBackground(new java.awt.Color(244, 242, 227));
         jPanel1.setLayout(null);
 
-        jTable1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaForm.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        tablaForm.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,7 +100,12 @@ String Usuario;
                 "Cédula", "Nombre", "Calificación", "Materia"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tablaForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablaFormMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaForm);
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(17, 83, 533, 302);
@@ -140,6 +185,11 @@ String Usuario;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+    private DefaultTableModel modelo;
+    private void tablaFormMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaFormMousePressed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_tablaFormMousePressed
 
     /**
      * @param args the command line arguments
@@ -171,7 +221,7 @@ String Usuario;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Crear_Cuenta().setVisible(true);
+                new Formulario_Calificacion_Estudiante("").setVisible(true);
             }
         });
     }
@@ -187,6 +237,6 @@ String Usuario;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaForm;
     // End of variables declaration//GEN-END:variables
 }
