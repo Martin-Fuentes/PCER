@@ -37,7 +37,8 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnIniciar_Sesion = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
@@ -51,9 +52,9 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(244, 242, 227));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnIniciar_Sesion.setBackground(new java.awt.Color(240, 240, 248));
+        btnIniciar_Sesion.setBackground(new java.awt.Color(59, 74, 107));
         btnIniciar_Sesion.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        btnIniciar_Sesion.setForeground(new java.awt.Color(51, 51, 51));
+        btnIniciar_Sesion.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciar_Sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iniciar-sesion.png"))); // NOI18N
         btnIniciar_Sesion.setText("Iniciar sesión");
         btnIniciar_Sesion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -62,19 +63,27 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
                 btnIniciar_SesionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnIniciar_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 145, 53));
+        jPanel1.add(btnIniciar_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, 50));
 
-        jButton1.setBackground(new java.awt.Color(240, 240, 248));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
-        jButton1.setText("Regresar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("¿No tienes una cuenta?");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 145, 45));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
+        jLabel8.setText("<html><a href=\"Crear Cuenta\">Crear cuenta</a></html>");
+        jLabel8.setToolTipText("");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel8MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 80, -1));
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 125, 231, 30));
 
         jLabel2.setBackground(new java.awt.Color(59, 74, 107));
@@ -137,10 +146,16 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnIniciar_SesionActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-           this.setVisible(false);
-            new Crear_Cuenta().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Crear_Cuenta().setVisible(true);
+    }//GEN-LAST:event_jLabel8MousePressed
 
     /**
      * @param args the command line arguments
@@ -179,11 +194,12 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar_Sesion;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JPasswordField txtPass;
