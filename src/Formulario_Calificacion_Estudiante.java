@@ -178,10 +178,10 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         
             
        
-        for (int e = 0; e <= i; e++) {
+        for (int e = 0; e <= i-1; e++) {
             for (int j = 0; j <= 4; j++) {
                 String sql;
-                String valor = (String) modelo.getValueAt(e, j);
+                String valor =  modelo.getValueAt(e, j).toString();
                 if (!valor.equals(ConsultaActual)) {
                     switch (j) {
                         case 0:
@@ -207,7 +207,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
                             }
                             break;
                         case 2:
-                            sql = "UPDATE Calificacion_Materia SET Calificacion='" + Integer.parseInt(valor) + "' WHERE id_Calificacion_Materia='" + ConsultaActual[e][5] + "'";
+                            sql = "UPDATE Calificacion_Materia SET Calificacion='" + Double.parseDouble(valor) + "' WHERE id_Calificacion_Materia='" + ConsultaActual[e][5] + "'";
 
                             try {
                                 pst = con.createStatement();
@@ -245,11 +245,11 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
 
         }
-        
+        i=0;
         actualizar();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void actualizar() {
-        String [][] valores={};
+        String [][] valores=new String[5][1000];
         conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion,Nivel,id_Calificacion_Materia from Calificacion_Materia Where Cedula_Usuario = '" + Usuario + "' ORDER BY Nivel ASC";
@@ -274,10 +274,12 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
                 mat = rs.getString("Materia");
                 niv = rs.getString("Nivel");
                 id = rs.getInt("id_Calificacion_Materia");
-                modelo.addRow(new Object[]{ced, nom, cali, mat, niv});
+                String cali2=cali+"";
+                
+                modelo.addRow(new Object[]{ced, nom, cali2, mat, niv});
                 valores[i][0] = ced;
                 valores[i][1] = nom;
-                valores[i][2] = cali + "";
+                valores[i][2] = cali2;
                 valores[i][3] = mat;
                 valores[i][4] = niv;
                 valores[i][5] = id + "";
