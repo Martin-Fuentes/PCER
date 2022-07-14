@@ -158,12 +158,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        conectar conecta = new conectar();
+ conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         Statement pst;
         if (tablaForm.getSelectedRow() != 1) {
@@ -182,6 +177,11 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
         }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+       
 
     }//GEN-LAST:event_jButton2ActionPerformed
     private DefaultTableModel modelo;
