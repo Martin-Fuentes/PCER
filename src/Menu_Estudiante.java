@@ -29,8 +29,8 @@ String Usuario;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAct = new javax.swing.JButton();
+        btnForm = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -44,15 +44,25 @@ String Usuario;
         jPanel1.setPreferredSize(new java.awt.Dimension(420, 430));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setBackground(new java.awt.Color(195, 209, 232));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton3.setText("Actualizar Calificación");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, 60));
+        btnAct.setBackground(new java.awt.Color(195, 209, 232));
+        btnAct.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnAct.setText("Actualizar Calificación");
+        btnAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, 60));
 
-        jButton2.setBackground(new java.awt.Color(195, 209, 232));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton2.setText("Formulario Calificación");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 300, 60));
+        btnForm.setBackground(new java.awt.Color(195, 209, 232));
+        btnForm.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnForm.setText("Formulario Calificación");
+        btnForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFormActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 300, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(59, 74, 107));
@@ -86,6 +96,18 @@ String Usuario;
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0); 
     }//GEN-LAST:event_salirActionPerformed
+
+    private void btnFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormActionPerformed
+        // TODO add your handling code here:
+         this.setVisible(false);
+        new Formulario_Calificacion_Estudiante(Usuario).setVisible(true);
+    }//GEN-LAST:event_btnFormActionPerformed
+
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        // TODO add your handling code here:
+         this.setVisible(false);
+        new ActualizarCalificación(Usuario).setVisible(true);
+    }//GEN-LAST:event_btnActActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,9 +145,9 @@ String Usuario;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAct;
+    private javax.swing.JButton btnForm;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
