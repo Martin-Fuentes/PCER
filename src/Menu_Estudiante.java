@@ -29,12 +29,11 @@ String Usuario;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        botonFormulario = new javax.swing.JRadioButton();
-        botonActualizar = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,29 +44,15 @@ String Usuario;
         jPanel1.setPreferredSize(new java.awt.Dimension(420, 430));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botonFormulario.setBackground(new java.awt.Color(195, 209, 232));
-        buttonGroup1.add(botonFormulario);
-        botonFormulario.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        botonFormulario.setText("Formulario Calificación");
-        botonFormulario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        botonFormulario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonFormularioActionPerformed(evt);
-            }
-        });
-        jPanel1.add(botonFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 320, 64));
+        jButton3.setBackground(new java.awt.Color(195, 209, 232));
+        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton3.setText("Actualizar Calificación");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, 60));
 
-        botonActualizar.setBackground(new java.awt.Color(195, 209, 232));
-        buttonGroup1.add(botonActualizar);
-        botonActualizar.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        botonActualizar.setText("Ingresar Calificación");
-        botonActualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        botonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonActualizarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(botonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 320, 64));
+        jButton2.setBackground(new java.awt.Color(195, 209, 232));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton2.setText("Formulario Calificación");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 300, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(59, 74, 107));
@@ -90,16 +75,6 @@ String Usuario;
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estudiante.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, 139));
 
-        jButton1.setBackground(new java.awt.Color(156, 154, 163));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setText("Aceptar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 140, 40));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondointerfaces.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 430));
 
@@ -107,26 +82,6 @@ String Usuario;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonActualizarActionPerformed
-
-    private void botonFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFormularioActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_botonFormularioActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     if(botonFormulario.isSelected()){
-     this.setVisible(false);
-     new Formulario_Calificacion_Estudiante(Usuario).setVisible(true); 
-      
-    }else if(botonActualizar.isSelected()){
-     this.setVisible(false);
-     new ActualizarCalificación(Usuario).setVisible(true); 
-    }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0); 
@@ -168,10 +123,9 @@ String Usuario;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton botonActualizar;
-    private javax.swing.JRadioButton botonFormulario;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
