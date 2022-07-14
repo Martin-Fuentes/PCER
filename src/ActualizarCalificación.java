@@ -240,11 +240,13 @@ public class ActualizarCalificación extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
                 }
             } else{
-                 JOptionPane.showMessageDialog(null, "Inserte la calificación en formato decimal.\n Ejem. 5.0");
-            }
+                JOptionPane.showMessageDialog(null,"Faltan campos por completar" );
+                   }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null,"Faltan campos por completar" );
+            
+            JOptionPane.showMessageDialog(null, "Inserte la calificación en formato decimal.\n Ejem. 5.0");
+          
            
         }
 
