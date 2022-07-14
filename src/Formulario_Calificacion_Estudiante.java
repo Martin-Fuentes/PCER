@@ -166,7 +166,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
  conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         Statement pst;
-        if (tablaForm.getSelectedRow() != 1) {
+        if (tablaForm.getSelectedRow() != -1) {
             int filaseleccionada = tablaForm.getSelectedRow();
             int id = Integer.parseInt(ConsultaActual[filaseleccionada][5]);
             String sql="DELETE FROM Calificacion_Materia Where id_Calificacion_Materia='"+id+"'";
