@@ -29,7 +29,7 @@ String Usuario;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        botonRegistrar = new javax.swing.JRadioButton();
+        botonFormulario = new javax.swing.JRadioButton();
         botonActualizar = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         salir = new javax.swing.JButton();
@@ -45,17 +45,17 @@ String Usuario;
         jPanel1.setPreferredSize(new java.awt.Dimension(420, 430));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botonRegistrar.setBackground(new java.awt.Color(195, 209, 232));
-        buttonGroup1.add(botonRegistrar);
-        botonRegistrar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        botonRegistrar.setText("Ver formulario");
-        botonRegistrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        botonFormulario.setBackground(new java.awt.Color(195, 209, 232));
+        buttonGroup1.add(botonFormulario);
+        botonFormulario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        botonFormulario.setText("Ver formulario");
+        botonFormulario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        botonFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegistrarActionPerformed(evt);
+                botonFormularioActionPerformed(evt);
             }
         });
-        jPanel1.add(botonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 121, 320, 64));
+        jPanel1.add(botonFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 121, 320, 64));
 
         botonActualizar.setBackground(new java.awt.Color(195, 209, 232));
         buttonGroup1.add(botonActualizar);
@@ -112,15 +112,15 @@ String Usuario;
         // TODO add your handling code here:
     }//GEN-LAST:event_botonActualizarActionPerformed
 
-    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
+    private void botonFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFormularioActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new Formulario_Calificacion_Estudiante(Usuario).setVisible(true); 
-    }//GEN-LAST:event_botonRegistrarActionPerformed
+        
+    }//GEN-LAST:event_botonFormularioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     if(botonRegistrar.isSelected()){
+     if(botonFormulario.isSelected()){
      this.setVisible(false);
+     new Formulario_Calificacion_Estudiante(Usuario).setVisible(true); 
       
     }else if(botonActualizar.isSelected()){
      this.setVisible(false);
@@ -169,7 +169,7 @@ String Usuario;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton botonActualizar;
-    private javax.swing.JRadioButton botonRegistrar;
+    private javax.swing.JRadioButton botonFormulario;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
