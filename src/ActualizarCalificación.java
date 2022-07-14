@@ -207,11 +207,10 @@ public class ActualizarCalificación extends javax.swing.JFrame {
         String ced = txtCedula.getText();
         String cedusu = Usuario;
         String nom=txtNombre.getText();
-         String mat = txtMateria.getText();
-            String Nivel = txtNivel.getText();
         try {
             double cali = Double.parseDouble(txtCalific.getText());
-           
+            String mat = txtMateria.getText();
+            String Nivel = txtNivel.getText();
             if (ced.length()>3 && nom.length()>0 && mat.length() > 2 && Nivel.length() > 0) {
                 Connection con;
                 conectar conecta = new conectar();
@@ -240,12 +239,11 @@ public class ActualizarCalificación extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
                 }
             } else{
-                JOptionPane.showMessageDialog(null, "Faltan campos por completar");
-                
+                JOptionPane.showMessageDialog(null, "Inserte la calificación en formato decimal. Ejem. 5.0");
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Inserte la calificación en formato decimal. Ejem. 5.0");
+            JOptionPane.showMessageDialog(null, "Faltan campos por completar");
         }
 
     }//GEN-LAST:event_botonGuardarActionPerformed
