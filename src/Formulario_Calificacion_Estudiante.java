@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +20,8 @@ import javax.swing.table.DefaultTableModel;
 public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
 
     String Usuario;
+    String[][] ConsultaActual;
+    int i = 0;
 
     /**
      * Creates new form Formulario_Calificacion_Estudiante
@@ -28,37 +32,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         this.Usuario = Usuario;
 
         this.setLocationRelativeTo(null);
-         conectar conecta = new conectar();
-        Connection con = conecta.getConexion();
-        String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion,Nivel from Calificacion_Materia Where Cedula_Usuario = '"+Usuario+"' ORDER BY Nivel ASC";
-        modelo = new DefaultTableModel();
- 
-        modelo.addColumn("Cedula");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Nivel");
-        modelo.addColumn("Calificación");
-        modelo.addColumn("Materia");
-        try{
-            Statement pst = con.createStatement();
-            ResultSet rs = pst.executeQuery(sql);
-            String ced,nom,mat,niv;
-            double cali;
-            while(rs.next()){
-                ced=rs.getString("Cedula_Estudiante");
-                nom=rs.getString("Nombre");
-                cali=rs.getDouble("Calificacion");
-                mat=rs.getString("Materia");
-                niv=rs.getString("Nivel");
-                 
-                modelo.addRow(new Object[]{ced, nom,cali, mat,niv});
-            }
-            
-            
-        }catch(SQLException e){
-             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
-                
-        }
-        tablaForm.setModel(modelo);
+        actualizar();
     }
 
     /**
@@ -127,7 +101,12 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprobar.png"))); // NOI18N
-        jButton1.setText("Aceptar");
+        jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(313, 400, 133, 36);
 
@@ -164,7 +143,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardararchivo .png"))); // NOI18N
-        jButton4.setText("Guardar");
+        jButton4.setText("Ver");
         jPanel1.add(jButton4);
         jButton4.setBounds(313, 454, 133, 36);
 
@@ -188,8 +167,127 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
     private DefaultTableModel modelo;
     private void tablaFormMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaFormMousePressed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_tablaFormMousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        conectar conecta = new conectar();
+        Connection con = conecta.getConexion();
+        Statement pst;
+        
+            
+       
+        for (int e = 0; e <= i; e++) {
+            for (int j = 0; j <= 4; j++) {
+                String sql;
+                String valor = (String) modelo.getValueAt(e, j);
+                if (!valor.equals(ConsultaActual)) {
+                    switch (j) {
+                        case 0:
+                            sql = "UPDATE Calificacion_Materia SET Cedula_Estudiante='" + valor + "' WHERE id_Calificacion_Materia='" + ConsultaActual[e][5] + "'";
+
+                            try {
+                                pst = con.createStatement();
+                                pst.executeUpdate(sql);
+                            } catch (SQLException ex) {
+                                JOptionPane.showMessageDialog(null, "Error de conexión:" + ex.getMessage());
+
+                            }
+                            break;
+                        case 1:
+                            sql = "UPDATE Calificacion_Materia SET Nombre='" + valor + "' WHERE id_Calificacion_Materia='" + ConsultaActual[e][5] + "'";
+
+                            try {
+                                pst = con.createStatement();
+                                pst.executeUpdate(sql);
+                            } catch (SQLException ex) {
+                                JOptionPane.showMessageDialog(null, "Error de conexión:" + ex.getMessage());
+
+                            }
+                            break;
+                        case 2:
+                            sql = "UPDATE Calificacion_Materia SET Calificacion='" + Integer.parseInt(valor) + "' WHERE id_Calificacion_Materia='" + ConsultaActual[e][5] + "'";
+
+                            try {
+                                pst = con.createStatement();
+                                pst.executeUpdate(sql);
+                            } catch (SQLException ex) {
+                                JOptionPane.showMessageDialog(null, "Error de conexión:" + ex.getMessage());
+
+                            }
+                            break;
+                        case 3:
+                            sql = "UPDATE Calificacion_Materia SET Materia='" + valor + "' WHERE id_Calificacion_Materia='" + ConsultaActual[e][5] + "'";
+
+                            try {
+                                pst = con.createStatement();
+                                pst.executeUpdate(sql);
+                            } catch (SQLException ex) {
+                                JOptionPane.showMessageDialog(null, "Error de conexión:" + ex.getMessage());
+
+                            }
+                            break;
+                        case 4:
+                            sql = "UPDATE Calificacion_Materia SET Nivel='" + valor + "' WHERE id_Calificacion_Materia='" + ConsultaActual[e][5] + "'";
+
+                            try {
+                                pst = con.createStatement();
+                                pst.executeUpdate(sql);
+                            } catch (SQLException ex) {
+                                JOptionPane.showMessageDialog(null, "Error de conexión:" + ex.getMessage());
+
+                            }
+                            break;
+                    }
+
+                }
+            }
+
+        }
+        ConsultaActual=null;
+        actualizar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public void actualizar() {
+        conectar conecta = new conectar();
+        Connection con = conecta.getConexion();
+        String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion,Nivel,id_Calificacion_Materia from Calificacion_Materia Where Cedula_Usuario = '" + Usuario + "' ORDER BY Nivel ASC";
+        modelo = new DefaultTableModel();
+
+        modelo.addColumn("Cedula");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Nivel");
+        modelo.addColumn("Calificación");
+        modelo.addColumn("Materia");
+        try {
+            Statement pst = con.createStatement();
+            ResultSet rs = pst.executeQuery(sql);
+            String ced, nom, mat, niv;
+            double cali;
+            int id;
+
+            while (rs.next()) {
+                ced = rs.getString("Cedula_Estudiante");
+                nom = rs.getString("Nombre");
+                cali = rs.getDouble("Calificacion");
+                mat = rs.getString("Materia");
+                niv = rs.getString("Nivel");
+                id = rs.getInt("id_Calificacion_Materia");
+                modelo.addRow(new Object[]{ced, nom, cali, mat, niv});
+                ConsultaActual[i][0] = ced;
+                ConsultaActual[i][1] = nom;
+                ConsultaActual[i][2] = cali + "";
+                ConsultaActual[i][3] = mat;
+                ConsultaActual[i][4] = niv;
+                ConsultaActual[i][5] = id + "";
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+        }
+        tablaForm.setModel(modelo);
+    }
 
     /**
      * @param args the command line arguments
@@ -205,16 +303,24 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Formulario_Calificacion_Estudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formulario_Calificacion_Estudiante.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Formulario_Calificacion_Estudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formulario_Calificacion_Estudiante.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Formulario_Calificacion_Estudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formulario_Calificacion_Estudiante.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Formulario_Calificacion_Estudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Formulario_Calificacion_Estudiante.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
