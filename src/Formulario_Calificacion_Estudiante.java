@@ -173,9 +173,9 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             try {
                 pst=con.createStatement();
                 pst.executeUpdate(sql);
-                i--;
+                i=0;
                 actualizar();
-                JOptionPane.showMessageDialog(null, "Error de conexión:") ;
+                JOptionPane.showMessageDialog(null, "Se ha eliminado exitosamente") ;
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Error de conexión:" + ex.getMessage());
             }
