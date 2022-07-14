@@ -48,7 +48,7 @@ String Usuario;
         botonFormulario.setBackground(new java.awt.Color(195, 209, 232));
         buttonGroup1.add(botonFormulario);
         botonFormulario.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
-        botonFormulario.setText("Formulario Calificación");
+        botonFormulario.setText("Actualizar Calificación");
         botonFormulario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         botonFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
