@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
 
     String Usuario;
-    String[][] ConsultaActual={};
+    String[][] ConsultaActual;
     int i = 0;
 
     /**
