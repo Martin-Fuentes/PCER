@@ -47,27 +47,27 @@ String Usuario;
 
         botonFormulario.setBackground(new java.awt.Color(195, 209, 232));
         buttonGroup1.add(botonFormulario);
-        botonFormulario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        botonFormulario.setText("Ver formulario");
+        botonFormulario.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        botonFormulario.setText("Formulario Calificación");
         botonFormulario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         botonFormulario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonFormularioActionPerformed(evt);
             }
         });
-        jPanel1.add(botonFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 121, 320, 64));
+        jPanel1.add(botonFormulario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 320, 64));
 
         botonActualizar.setBackground(new java.awt.Color(195, 209, 232));
         buttonGroup1.add(botonActualizar);
-        botonActualizar.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        botonActualizar.setText("Actualizar calificación");
+        botonActualizar.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        botonActualizar.setText("Ingresar Calificación");
         botonActualizar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         botonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 197, 320, 64));
+        jPanel1.add(botonActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 320, 64));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(59, 74, 107));
@@ -98,7 +98,7 @@ String Usuario;
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 130, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 140, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondointerfaces.jpg"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 430));

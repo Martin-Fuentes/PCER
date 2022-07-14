@@ -182,6 +182,7 @@ public class Crear_Cuenta extends javax.swing.JFrame {
                         ps.setString(3, rol);
                         ps.setString(4, contra);
                         ps.executeUpdate();
+                         Limpiar();
                         JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");
                         this.setVisible(false);
                         new Iniciar_Sesion().setVisible(true);
@@ -198,7 +199,12 @@ public class Crear_Cuenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Hay campos por completar", "Message_incompleto", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnRegistrarseActionPerformed
-
+    public void Limpiar(){
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtPass.setText("");
+        comboRol.setSelectedIndex(0);
+    }
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
        

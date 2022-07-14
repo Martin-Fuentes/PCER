@@ -219,10 +219,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
 
                 con = conecta.getConexion();
 
-                try {
-                    int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea continuar?", "Advertencia: Los datos ingresados no se pueden volver a cambiar", JOptionPane.YES_NO_OPTION);
-
-                    if (resp == 0) {
+                try {                
                         sql = "insert into Calificacion_Materia(Cedula_Estudiante, Cedula_Usuario,Materia,Calificacion,Nivel,Nombre) values(?,?,?,?,?,?)";
 
                         PreparedStatement ps = con.prepareStatement(sql);
@@ -234,24 +231,28 @@ public class ActualizarCalificación extends javax.swing.JFrame {
                         ps.setString(5, Nivel);
                         ps.setString(6, nom);
                         ps.executeUpdate();
+                        Limpiar();
                         JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Puede modificar otra vez");
-                    }
+                   
 
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
                 }
             } else{
-                JOptionPane.showMessageDialog(null, "Faltan campos por completar");
+                JOptionPane.showMessageDialog(null, "Inserte la calificación en formato decimal. Ejem. 5.0");
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Inserte la calificación en formato decimal. Ejem. 5.0");
+            JOptionPane.showMessageDialog(null, "Faltan campos por completar");
         }
 
     }//GEN-LAST:event_botonGuardarActionPerformed
-
+    public void Limpiar(){
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtCalific.setText("");
+       
+    }
     private void txtMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMateriaActionPerformed

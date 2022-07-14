@@ -82,7 +82,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaForm);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(17, 83, 533, 302);
+        jScrollPane1.setBounds(20, 100, 533, 280);
 
         jButton2.setBackground(new java.awt.Color(49, 73, 109));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -95,7 +95,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(130, 400, 130, 40);
+        jButton2.setBounds(0, 0, 130, 40);
 
         jButton1.setBackground(new java.awt.Color(49, 73, 109));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -108,7 +108,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(130, 450, 130, 40);
+        jButton1.setBounds(90, 420, 130, 40);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
         jPanel1.add(jLabel5);
@@ -120,7 +120,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Formulario Calificación Estudiante");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(70, 20, 380, 50);
+        jLabel1.setBounds(90, 50, 380, 50);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
         jPanel1.add(jLabel7);
@@ -137,7 +137,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(310, 400, 130, 40);
+        jButton3.setBounds(240, 420, 140, 40);
 
         jButton4.setBackground(new java.awt.Color(49, 73, 109));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -150,7 +150,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(310, 450, 133, 40);
+        jButton4.setBounds(400, 420, 130, 40);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/nuevinform.jpg"))); // NOI18N
         jPanel1.add(jLabel11);
@@ -187,7 +187,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
        this.setVisible(false);
-        new Menu_Estudiante(Usuario).setVisible(true);
+       new Menu_Estudiante(Usuario).setVisible(true);
 
     }//GEN-LAST:event_jButton2ActionPerformed
     private DefaultTableModel modelo;

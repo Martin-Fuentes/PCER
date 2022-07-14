@@ -31,28 +31,28 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
     public Informe_Calificación() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-         DefaultTableModel modelo = new DefaultTableModel();
+       DefaultTableModel modelo = new DefaultTableModel();
         String Estudiante;
         Estudiante=txtBuscar.getText();
         conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         
-        String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion,Nivel from Calificacion_Materia Where Cedula_Usuario ";
+         String sql = "SELECT  Calificacion_Materia.Nombre, Calificacion_Materia.Cedula_Estudiante, Calificacion_Materia.Materia ,Calificacion_Materia.Calificacion,Calificacion_Materia.Nivel ,Usuario.Nombre FROM Usuario LEFT JOIN Calificacion_Materia ON Calificacion_Materia.Cedula_Usuario = Usuario.Cedula_Usuario ORDER BY Usuario.Nombre ASC";
        
          try{
             Statement pst = con.createStatement();
             ResultSet rs = pst.executeQuery(sql);
             
-            modelo.setColumnIdentifiers(new Object[]{"Cedula_Estudiante","Nombre","Materia","Calificacion","Nivel"});
+            modelo.setColumnIdentifiers(new Object[]{"Cedula","Nombre","Materia","Calificacion","Nivel","Docente"});
             
             while(rs.next()){
-                modelo.addRow(new Object[]{
+                 modelo.addRow(new Object[]{
                  rs.getString("Cedula_Estudiante"),
                  rs.getString("Nombre"),
                  rs.getDouble("Calificacion"),
                  rs.getString("Materia"),
-                 rs.getString("Nivel")});
+                 rs.getString("Nivel"),
+                 rs.getString("Usuario.Nombre")});
                          
                lista.setModel(modelo);
             }
@@ -70,7 +70,8 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
         conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         
-        String sql = "Select * from Calificacion_Materia where Cedula_Estudiante like'"+"%"+Estudiante+"%'"+"'INNER JOIN Usuario ON Usuario.Nombre";
+        //falta el nombre del docente
+        String sql = "Select * from Calificacion_Materia where Cedula_Estudiante like'"+"%"+Estudiante+"%'"+"'";
         
          try{
             Statement pst = con.createStatement();
@@ -93,6 +94,7 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
                 
         }
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,6 +194,11 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
         jButton3.setText("Regresar");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 102), null, null));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 160, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 690, 70));
@@ -224,6 +231,11 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
         listado();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      this.setVisible(false);
+      new Interfaz_Informe().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

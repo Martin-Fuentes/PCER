@@ -127,6 +127,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         try{
             Statement pst = con.createStatement();
             ResultSet rs = pst.executeQuery(sql);
+            Limpiar();
             if(rs.next()){
                 rol=rs.getString("Rol");     
                 if(rol.equals("Secretaria")){
@@ -145,7 +146,11 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
                 
         }
     }//GEN-LAST:event_btnIniciar_SesionActionPerformed
-
+    public void Limpiar(){
+        txtCedula.setText("");
+        txtPass.setText("");
+      
+    }
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
 
