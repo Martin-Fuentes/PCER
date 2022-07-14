@@ -233,7 +233,7 @@ public class ActualizarCalificación extends javax.swing.JFrame {
                         ps.setString(6, nom);
                         ps.executeUpdate();
                         Limpiar();
-                        JOptionPane.showMessageDialog(null, "se ha registrado con éxito");
+                        JOptionPane.showMessageDialog(null, "Guardado correctamente");
                    
 
                 } catch (SQLException e) {
