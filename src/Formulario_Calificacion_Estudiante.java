@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
 
     String Usuario;
-    String[][] ConsultaActual;
+    String[][] ConsultaActual={};
     int i = 0;
 
     /**
@@ -245,10 +245,12 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
 
         }
-        ConsultaActual=null;
+        
         actualizar();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void actualizar() {
+        ConsultaActual=null;
+        
         conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion,Nivel,id_Calificacion_Materia from Calificacion_Materia Where Cedula_Usuario = '" + Usuario + "' ORDER BY Nivel ASC";
