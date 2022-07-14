@@ -95,7 +95,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(117, 400, 130, 36);
+        jButton2.setBounds(130, 400, 130, 40);
 
         jButton1.setBackground(new java.awt.Color(49, 73, 109));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -108,7 +108,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(313, 400, 133, 36);
+        jButton1.setBounds(130, 450, 130, 40);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/espumoso.png"))); // NOI18N
         jPanel1.add(jLabel5);
@@ -137,15 +137,20 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(117, 454, 130, 36);
+        jButton3.setBounds(310, 400, 130, 40);
 
         jButton4.setBackground(new java.awt.Color(49, 73, 109));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardararchivo .png"))); // NOI18N
-        jButton4.setText("Actualizar");
+        jButton4.setText("Agregar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4);
-        jButton4.setBounds(313, 454, 133, 36);
+        jButton4.setBounds(310, 450, 133, 40);
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/nuevinform.jpg"))); // NOI18N
         jPanel1.add(jLabel11);
@@ -181,7 +186,8 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       
+       this.setVisible(false);
+        new Menu_Estudiante(Usuario).setVisible(true);
 
     }//GEN-LAST:event_jButton2ActionPerformed
     private DefaultTableModel modelo;
@@ -266,6 +272,12 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         i = 0;
         actualizar();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new ActualizarCalificación(Usuario).setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
     public void actualizar() {
         String[][] valores = new String[5][1000];
         conectar conecta = new conectar();
