@@ -17,84 +17,141 @@ import javax.swing.table.DefaultTableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Martin Fuentes
  */
 public class Informe_Calificación extends javax.swing.JFrame implements Printable {
-    
 
     /**
      * Creates new form Informe_Calificación
      */
-    public Informe_Calificación() {
+    public Informe_Calificación(int opcion) {
         initComponents();
         this.setLocationRelativeTo(null);
-       DefaultTableModel modelo = new DefaultTableModel();
-        String Estudiante;
-        Estudiante=txtBuscar.getText();
-        conectar conecta = new conectar();
-        Connection con = conecta.getConexion();
-        
-         String sql = "SELECT  Calificacion_Materia.Nombre, Calificacion_Materia.Cedula_Estudiante, Calificacion_Materia.Materia ,Calificacion_Materia.Calificacion,Calificacion_Materia.Nivel ,Usuario.Nombre FROM Usuario LEFT JOIN Calificacion_Materia ON Calificacion_Materia.Cedula_Usuario = Usuario.Cedula_Usuario ORDER BY Usuario.Nombre ASC";
-       
-         try{
-            Statement pst = con.createStatement();
-            ResultSet rs = pst.executeQuery(sql);
-            
-            modelo.setColumnIdentifiers(new Object[]{"Cedula","Nombre","Materia","Calificacion","Nivel","Docente"});
-            
-            while(rs.next()){
-                 modelo.addRow(new Object[]{
-                 rs.getString("Cedula_Estudiante"),
-                 rs.getString("Nombre"),
-                 rs.getDouble("Calificacion"),
-                 rs.getString("Materia"),
-                 rs.getString("Nivel"),
-                 rs.getString("Usuario.Nombre")});
-                         
-               lista.setModel(modelo);
-            }
-        }catch(SQLException e){
-             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
-                
+        String sql = "";
+        switch (opcion) {
+            case 1:
+                sql = "SELECT  cal.Nombre, cal.Cedula_Estudiante, cal.Materia ,cal.Calificacion,cal.Nivel ,us.Nombre FROM Usuario as us, Calificacion_Materia as cal where cal.Cedula_Usuario=us.Cedula_Usuario Order by cal.Nombre ASC";
+                break;
+
+            case 2:
+                sql = "SELECT  cal.Nombre, cal.Cedula_Estudiante, cal.Materia ,cal.Calificacion,cal.Nivel ,us.Nombre FROM Usuario as us, Calificacion_Materia as cal where cal.Cedula_Usuario=us.Cedula_Usuario AND cal.Calificacion<3 Order by cal.Nombre ASC";
+                break;
+            case 3:
+                sql = "select cal.Cedula_Estudiante,cal.Nombre,cal.Nivel,sum(case when cal.Calificacion <= 3 then 1 else 0 end) as 'Cantidad' from Calificacion_Materia as cal group by cal.Cedula_Estudiante";
+                break;
         }
-    }
-    
-    public void listado(){
-        
-        DefaultTableModel modelo = new DefaultTableModel();
-        String Estudiante;
-        Estudiante=txtBuscar.getText();
-        conectar conecta = new conectar();
-        Connection con = conecta.getConexion();
-        
-        //falta el nombre del docente
-        String sql = "Select * from Calificacion_Materia where Cedula_Estudiante like'"+"%"+Estudiante+"%'"+"'";
-        
-         try{
-            Statement pst = con.createStatement();
-            ResultSet rs = pst.executeQuery(sql);
-            
-            modelo.setColumnIdentifiers(new Object[]{"Cedula_Estudiante","Nombre","Materia","Calificacion","Nivel"});
-            
-            while(rs.next()){
-                modelo.addRow(new Object[]{
-                 rs.getString("Cedula_Estudiante"),
-                 rs.getString("Nombre"),
-                 rs.getDouble("Calificacion"),
-                 rs.getString("Materia"),
-                 rs.getString("Nivel")});
-                         
-               lista.setModel(modelo);
-            }
-        }catch(SQLException e){
-             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+        if (opcion == 3) {
+
+            try {
+                conectar conecta = new conectar();
+                Connection con = conecta.getConexion();
+                DefaultTableModel modelo = new DefaultTableModel();
+
+                modelo.addColumn("Cedula");
+                modelo.addColumn("Nombre");
+                modelo.addColumn("Nivel");
+                modelo.addColumn("Cantidad");
+                modelo.addColumn("Materias");
+                Statement pst = con.createStatement();
+                ResultSet rs = pst.executeQuery(sql);
+                String ced, nom, niv,mat="";
+                int cant;
+                int id;
                 
+                while (rs.next()) {
+                    ced = rs.getString("cal.Cedula_Estudiante");
+                    nom = rs.getString("cal.Nombre");
+                    niv = rs.getString("cal.Nivel");
+                    cant = rs.getInt("Cantidad");
+                    if(cant<=3){
+                        String sql2=" SELECT cal.Materia from Calificacion_Materia cal where cal.Cedula_Estudiante='"+ced+"'";
+                        mat="";
+                        conectar conecta2 = new conectar();
+                        Connection con2 = conecta2.getConexion();
+                        Statement pst2 = con2.createStatement();
+                        ResultSet rs2 = pst2.executeQuery(sql2);
+                        while(rs2.next()){
+                            mat+=rs2.getString("cal.Materia"+",");
+                        }
+                        
+                    }
+                    
+                     modelo.addRow(new Object[]{ced, nom, niv, cant, mat});
+                }
+                lista.setModel(modelo);
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+            }
+
+        } else {
+            DefaultTableModel modelo = new DefaultTableModel();
+            String Estudiante;
+            Estudiante = txtBuscar.getText();
+            conectar conecta = new conectar();
+            Connection con = conecta.getConexion();
+
+            try {
+
+                Statement pst = con.createStatement();
+                ResultSet rs = pst.executeQuery(sql);
+
+                modelo.setColumnIdentifiers(new Object[]{"Cedula", "Nombre", "Materia", "Calificacion", "Nivel", "Docente"});
+
+                while (rs.next()) {
+                    modelo.addRow(new Object[]{
+                        rs.getString("Cedula_Estudiante"),
+                        rs.getString("Nombre"),
+                        rs.getDouble("Calificacion"),
+                        rs.getString("Materia"),
+                        rs.getString("Nivel"),
+                        rs.getString("Usuario.Nombre")});
+
+                    lista.setModel(modelo);
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+            }
         }
+
     }
 
+    public void listado() {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        String Estudiante;
+        Estudiante = txtBuscar.getText();
+        conectar conecta = new conectar();
+        Connection con = conecta.getConexion();
+
+        //falta el nombre del docente
+        String sql = "Select * from Calificacion_Materia where Cedula_Estudiante like'" + "%" + Estudiante + "%'" + "'";
+
+        try {
+            Statement pst = con.createStatement();
+            ResultSet rs = pst.executeQuery(sql);
+
+            modelo.setColumnIdentifiers(new Object[]{"Cedula_Estudiante", "Nombre", "Materia", "Calificacion", "Nivel"});
+
+            while (rs.next()) {
+                modelo.addRow(new Object[]{
+                    rs.getString("Cedula_Estudiante"),
+                    rs.getString("Nombre"),
+                    rs.getDouble("Calificacion"),
+                    rs.getString("Materia"),
+                    rs.getString("Nivel")});
+
+                lista.setModel(modelo);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -211,30 +268,30 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
     }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       PrinterJob job = PrinterJob.getPrinterJob();
-       job.setPrintable(this);
-       if(job.printDialog()){
-           try{
-               job.print();
-               
-           }catch(PrinterException ex){
-               
-           }
-       }else{
-           JOptionPane.showMessageDialog(this,"La impresión se cancelo ");
-       }
-       
+        PrinterJob job = PrinterJob.getPrinterJob();
+        job.setPrintable(this);
+        if (job.printDialog()) {
+            try {
+                job.print();
+
+            } catch (PrinterException ex) {
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "La impresión se cancelo ");
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // buscar
         listado();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      this.setVisible(false);
-      new Interfaz_Informe().setVisible(true);
+        this.setVisible(false);
+        new Interfaz_Informe().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -267,7 +324,7 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Informe_Calificación().setVisible(true);
+                new Informe_Calificación(1).setVisible(true);
             }
         });
     }
@@ -286,15 +343,15 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
 
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-        if(pageIndex==0){
-            Graphics2D graphics2d =(Graphics2D) graphics;
-            graphics2d.translate(pageFormat.getImageableX(),pageFormat.getImageableY());
+        if (pageIndex == 0) {
+            Graphics2D graphics2d = (Graphics2D) graphics;
+            graphics2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
             //printAll(graphics2d);
             panelinforme.printAll(graphics2d);
-           return PAGE_EXISTS; 
-        }else{
+            return PAGE_EXISTS;
+        } else {
             return NO_SUCH_PAGE;
         }
- 
+
     }
 }
