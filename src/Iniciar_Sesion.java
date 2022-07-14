@@ -1,10 +1,13 @@
 
 
 import conectar.conectar;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,6 +24,8 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
      * Creates new form Iniciar_Sesion
      */
     public Iniciar_Sesion() {
+        Image iconoPropio = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/test.png"));
+        setIconImage(iconoPropio);
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);

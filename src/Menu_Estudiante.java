@@ -1,3 +1,7 @@
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -13,6 +17,8 @@ String Usuario;
      * Creates new form Menu_Estudiante
      */
     public Menu_Estudiante(String Usuario) {
+        Image iconoPropio = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/test.png"));
+        setIconImage(iconoPropio);
         initComponents();
         this.setLocationRelativeTo(null);
         this.Usuario=Usuario;
