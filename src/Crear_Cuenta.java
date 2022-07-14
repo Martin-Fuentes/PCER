@@ -41,7 +41,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
-        salir = new javax.swing.JButton();
         txtPass = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         comboRol = new javax.swing.JComboBox<>();
@@ -98,17 +97,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 140, 40));
-
-        salir.setBackground(new java.awt.Color(153, 0, 0));
-        salir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        salir.setForeground(new java.awt.Color(255, 255, 255));
-        salir.setText("X");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
-            }
-        });
-        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, -1));
         jPanel1.add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -149,10 +137,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_salirActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         // TODO add your handling code here:
@@ -264,7 +248,6 @@ public class Crear_Cuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton salir;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPass;

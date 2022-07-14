@@ -35,10 +35,10 @@ String Usuario;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        botonRegresar = new javax.swing.JButton();
         btnAct = new javax.swing.JButton();
         btnForm = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        salir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -50,6 +50,19 @@ String Usuario;
         jPanel1.setPreferredSize(new java.awt.Dimension(420, 430));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        botonRegresar.setBackground(new java.awt.Color(59, 74, 107));
+        botonRegresar.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        botonRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        botonRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/volver.png"))); // NOI18N
+        botonRegresar.setText("Regresar");
+        botonRegresar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 160, 40));
+
         btnAct.setBackground(new java.awt.Color(59, 74, 107));
         btnAct.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnAct.setForeground(new java.awt.Color(255, 255, 255));
@@ -59,7 +72,7 @@ String Usuario;
                 btnActActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 300, 60));
+        jPanel1.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 300, 60));
 
         btnForm.setBackground(new java.awt.Color(59, 74, 107));
         btnForm.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -70,7 +83,7 @@ String Usuario;
                 btnFormActionPerformed(evt);
             }
         });
-        jPanel1.add(btnForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 300, 60));
+        jPanel1.add(btnForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 300, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(59, 74, 107));
@@ -78,17 +91,6 @@ String Usuario;
         jLabel1.setText("Interfaz Menú Estudiante");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 340, 45));
-
-        salir.setBackground(new java.awt.Color(153, 0, 0));
-        salir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        salir.setForeground(new java.awt.Color(255, 255, 255));
-        salir.setText("X");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
-            }
-        });
-        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 0, 46, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/estudiante.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, 139));
@@ -101,10 +103,6 @@ String Usuario;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        System.exit(0); 
-    }//GEN-LAST:event_salirActionPerformed
-
     private void btnFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFormActionPerformed
         // TODO add your handling code here:
          this.setVisible(false);
@@ -116,6 +114,12 @@ String Usuario;
          this.setVisible(false);
         new ActualizarCalificación(Usuario).setVisible(true);
     }//GEN-LAST:event_btnActActionPerformed
+
+    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+        // regresar
+        this.setVisible(false);
+        new Iniciar_Sesion().setVisible(true);
+    }//GEN-LAST:event_botonRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +157,7 @@ String Usuario;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonRegresar;
     private javax.swing.JButton btnAct;
     private javax.swing.JButton btnForm;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -160,6 +165,5 @@ String Usuario;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }
