@@ -65,13 +65,13 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         tablaForm.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         tablaForm.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Cédula", "Nombre", "Calificación", "Materia"
+                "Cédula", "Nombre", "Calificación", "Materia", "Nivel"
             }
         ));
         tablaForm.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -143,7 +143,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardararchivo .png"))); // NOI18N
-        jButton4.setText("Ver");
+        jButton4.setText("Actualizar");
         jPanel1.add(jButton4);
         jButton4.setBounds(313, 454, 133, 36);
 
@@ -158,11 +158,31 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        System.out.print("holla");
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        conectar conecta = new conectar();
+        Connection con = conecta.getConexion();
+        Statement pst;
+        if (tablaForm.getSelectedRow() != 1) {
+            int filaseleccionada = tablaForm.getSelectedRow();
+            int id = Integer.parseInt(ConsultaActual[filaseleccionada][5]);
+            String sql="DELETE FROM Calificacion_Materia Where id_Calificacion_Materia='"+id+"'";
+            try {
+                pst=con.createStatement();
+                pst.executeUpdate(sql);
+                i--;
+                actualizar();
+                JOptionPane.showMessageDialog(null, "Error de conexión:") ;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error de conexión:" + ex.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
     private DefaultTableModel modelo;
     private void tablaFormMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaFormMousePressed
@@ -175,13 +195,11 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         Statement pst;
-        
-            
-       
-        for (int e = 0; e <= i-1; e++) {
+
+        for (int e = 0; e <= i - 1; e++) {
             for (int j = 0; j <= 4; j++) {
                 String sql;
-                String valor =  modelo.getValueAt(e, j).toString();
+                String valor = modelo.getValueAt(e, j).toString();
                 if (!valor.equals(ConsultaActual)) {
                     switch (j) {
                         case 0:
@@ -245,11 +263,11 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             }
 
         }
-        i=0;
+        i = 0;
         actualizar();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void actualizar() {
-        String [][] valores=new String[5][1000];
+        String[][] valores = new String[5][1000];
         conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion,Nivel,id_Calificacion_Materia from Calificacion_Materia Where Cedula_Usuario = '" + Usuario + "' ORDER BY Nivel ASC";
@@ -274,8 +292,8 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
                 mat = rs.getString("Materia");
                 niv = rs.getString("Nivel");
                 id = rs.getInt("id_Calificacion_Materia");
-                String cali2=cali+"";
-                
+                String cali2 = cali + "";
+
                 modelo.addRow(new Object[]{ced, nom, cali2, mat, niv});
                 valores[i][0] = ced;
                 valores[i][1] = nom;
@@ -290,7 +308,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
 
         }
-        ConsultaActual=valores;
+        ConsultaActual = valores;
         tablaForm.setModel(modelo);
     }
 
