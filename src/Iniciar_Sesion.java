@@ -73,7 +73,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
                 jLabel7MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel8.setText("<html><a href=\"Crear Cuenta\">Crear cuenta</a></html>");
@@ -83,7 +83,7 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
                 jLabel8MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 80, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 90, -1));
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 125, 231, 30));
 
         jLabel2.setBackground(new java.awt.Color(59, 74, 107));
@@ -127,8 +127,9 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
         try{
             Statement pst = con.createStatement();
             ResultSet rs = pst.executeQuery(sql);
-            Limpiar();
+            
             if(rs.next()){
+                Limpiar();
                 rol=rs.getString("Rol");     
                 if(rol.equals("Secretaria")){
                     this.setVisible(false);
@@ -138,11 +139,11 @@ public class Iniciar_Sesion extends javax.swing.JFrame {
                     new Menu_Estudiante(Cedula).setVisible(true);
                 }
             }else{
-                JOptionPane.showMessageDialog(null, "Error Usuario No encontrado","Message_Iniciar_Sesion",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error Usuario no encontrado","Advertencia",JOptionPane.WARNING_MESSAGE);
             }
             
         }catch(SQLException e){
-             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+             JOptionPane.showMessageDialog(null, "Error de conexión","Advertencia",JOptionPane.ERROR_MESSAGE);
                 
         }
     }//GEN-LAST:event_btnIniciar_SesionActionPerformed

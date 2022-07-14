@@ -44,25 +44,27 @@ String Usuario;
         jPanel1.setPreferredSize(new java.awt.Dimension(420, 430));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAct.setBackground(new java.awt.Color(195, 209, 232));
-        btnAct.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnAct.setText("Actualizar Calificación");
+        btnAct.setBackground(new java.awt.Color(59, 74, 107));
+        btnAct.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnAct.setForeground(new java.awt.Color(255, 255, 255));
+        btnAct.setText("Ingresar Calificación");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, 60));
+        jPanel1.add(btnAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 300, 60));
 
-        btnForm.setBackground(new java.awt.Color(195, 209, 232));
-        btnForm.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnForm.setText("Formulario Calificación");
+        btnForm.setBackground(new java.awt.Color(59, 74, 107));
+        btnForm.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnForm.setForeground(new java.awt.Color(255, 255, 255));
+        btnForm.setText("Actualizar Calificación");
         btnForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFormActionPerformed(evt);
             }
         });
-        jPanel1.add(btnForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 300, 60));
+        jPanel1.add(btnForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 300, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(59, 74, 107));
