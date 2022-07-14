@@ -249,6 +249,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
         actualizar();
     }//GEN-LAST:event_jButton1ActionPerformed
     public void actualizar() {
+        String [][] valores={};
         conectar conecta = new conectar();
         Connection con = conecta.getConexion();
         String sql = "Select Cedula_Estudiante,Nombre,Materia,Calificacion,Nivel,id_Calificacion_Materia from Calificacion_Materia Where Cedula_Usuario = '" + Usuario + "' ORDER BY Nivel ASC";
@@ -274,12 +275,12 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
                 niv = rs.getString("Nivel");
                 id = rs.getInt("id_Calificacion_Materia");
                 modelo.addRow(new Object[]{ced, nom, cali, mat, niv});
-                ConsultaActual[i][0] = ced;
-                ConsultaActual[i][1] = nom;
-                ConsultaActual[i][2] = cali + "";
-                ConsultaActual[i][3] = mat;
-                ConsultaActual[i][4] = niv;
-                ConsultaActual[i][5] = id + "";
+                valores[i][0] = ced;
+                valores[i][1] = nom;
+                valores[i][2] = cali + "";
+                valores[i][3] = mat;
+                valores[i][4] = niv;
+                valores[i][5] = id + "";
                 i++;
             }
 
@@ -287,6 +288,7 @@ public class Formulario_Calificacion_Estudiante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
 
         }
+        ConsultaActual=valores;
         tablaForm.setModel(modelo);
     }
 
