@@ -26,8 +26,11 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
     /**
      * Creates new form Informe_Calificación
      */
+    int opcion;
+
     public Informe_Calificación(int opcion) {
         initComponents();
+        this.opcion = opcion;
         this.setLocationRelativeTo(null);
         String sql = "";
         switch (opcion) {
@@ -56,29 +59,29 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
                 modelo.addColumn("Materias");
                 Statement pst = con.createStatement();
                 ResultSet rs = pst.executeQuery(sql);
-                String ced, nom, niv,mat="";
+                String ced, nom, niv, mat = "";
                 int cant;
                 int id;
-                
+
                 while (rs.next()) {
                     ced = rs.getString("cal.Cedula_Estudiante");
                     nom = rs.getString("cal.Nombre");
                     niv = rs.getString("cal.Nivel");
                     cant = rs.getInt("Cantidad");
-                    if(cant<=3){
-                        String sql2=" SELECT Materia from Calificacion_Materia where Cedula_Estudiante='"+ced+"'";
-                        mat="";
+                    if (cant <= 3) {
+                        String sql2 = " SELECT Materia from Calificacion_Materia where Cedula_Estudiante='" + ced + "'";
+                        mat = "";
                         conectar conecta2 = new conectar();
                         Connection con2 = conecta2.getConexion();
                         Statement pst2 = con2.createStatement();
                         ResultSet rs2 = pst2.executeQuery(sql2);
-                        while(rs2.next()){
-                            mat+=rs2.getString("cal.Materia")+", ";
+                        while (rs2.next()) {
+                            mat += rs2.getString("cal.Materia") + ", ";
                         }
-                        
+
                     }
-                    
-                     modelo.addRow(new Object[]{ced, nom, niv, cant, mat});
+
+                    modelo.addRow(new Object[]{ced, nom, niv, cant, mat});
                 }
                 lista.setModel(modelo);
 
@@ -110,9 +113,8 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
                         rs.getString("cal.Nivel"),
                         rs.getString("us.Nombre")});
 
-                   
                 }
-                 lista.setModel(modelo);
+                lista.setModel(modelo);
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
 
@@ -122,35 +124,185 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
     }
 
     public void listado() {
+        String ced2=txtBuscar.getText();
+        if (txtBuscar.getText().length() > 0) {
+            String sql = "";
+            switch (opcion) {
+                case 1:
+                    sql = "SELECT  cal.Nombre, cal.Cedula_Estudiante, cal.Materia ,cal.Calificacion,cal.Nivel ,us.Nombre FROM Usuario as us, Calificacion_Materia as cal where cal.Cedula_Usuario="+ced2+" Order by cal.Nombre ASC";
+                    break;
 
-        DefaultTableModel modelo = new DefaultTableModel();
-        String Estudiante;
-        Estudiante = txtBuscar.getText();
-        conectar conecta = new conectar();
-        Connection con = conecta.getConexion();
-
-        //falta el nombre del docente
-        String sql = "Select * from Calificacion_Materia where Cedula_Estudiante like'" + "%" + Estudiante + "%'" + "'";
-
-        try {
-            Statement pst = con.createStatement();
-            ResultSet rs = pst.executeQuery(sql);
-
-            modelo.setColumnIdentifiers(new Object[]{"Cedula_Estudiante", "Nombre", "Materia", "Calificacion", "Nivel"});
-
-            while (rs.next()) {
-                modelo.addRow(new Object[]{
-                    rs.getString("Cedula_Estudiante"),
-                    rs.getString("Nombre"),
-                    rs.getDouble("Calificacion"),
-                    rs.getString("Materia"),
-                    rs.getString("Nivel")});
-
-                lista.setModel(modelo);
+                case 2:
+                    sql = "SELECT  cal.Nombre, cal.Cedula_Estudiante, cal.Materia ,cal.Calificacion,cal.Nivel ,us.Nombre FROM Usuario as us, Calificacion_Materia as cal where cal.Cedula_Usuario="+ced2+" AND cal.Calificacion<3 Order by cal.Nombre ASC";
+                    break;
+                case 3:
+                    sql = "select cal.Cedula_Estudiante,cal.Nombre,cal.Nivel,sum(case when cal.Calificacion <= 3 then 1 else 0 end) as 'Cantidad' from Calificacion_Materia as cal where Cedula_Usuario="+ced2;
+                    break;
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+            if (opcion == 3) {
 
+                try {
+                    conectar conecta = new conectar();
+                    Connection con = conecta.getConexion();
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    modelo.addColumn("Cedula");
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Nivel");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Materias");
+                    Statement pst = con.createStatement();
+                    ResultSet rs = pst.executeQuery(sql);
+                    String ced, nom, niv, mat = "";
+                    int cant;
+                    int id;
+
+                    while (rs.next()) {
+                        ced = rs.getString("cal.Cedula_Estudiante");
+                        nom = rs.getString("cal.Nombre");
+                        niv = rs.getString("cal.Nivel");
+                        cant = rs.getInt("Cantidad");
+                        if (cant <= 3) {
+                            String sql2 = " SELECT Materia from Calificacion_Materia where Cedula_Estudiante='" + ced + "'";
+                            mat = "";
+                            conectar conecta2 = new conectar();
+                            Connection con2 = conecta2.getConexion();
+                            Statement pst2 = con2.createStatement();
+                            ResultSet rs2 = pst2.executeQuery(sql2);
+                            while (rs2.next()) {
+                                mat += rs2.getString("cal.Materia") + ", ";
+                            }
+
+                        }
+
+                        modelo.addRow(new Object[]{ced, nom, niv, cant, mat});
+                    }
+                    lista.setModel(modelo);
+
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+                }
+
+            } else {
+                DefaultTableModel modelo = new DefaultTableModel();
+                String Estudiante;
+                Estudiante = txtBuscar.getText();
+                conectar conecta = new conectar();
+                Connection con = conecta.getConexion();
+
+                try {
+
+                    Statement pst = con.createStatement();
+                    ResultSet rs = pst.executeQuery(sql);
+
+                    modelo.setColumnIdentifiers(new Object[]{"Cedula", "Nombre", "Materia", "Calificacion", "Nivel", "Docente"});
+
+                    while (rs.next()) {
+                        modelo.addRow(new Object[]{
+                            rs.getString("cal.Cedula_Estudiante"),
+                            rs.getString("cal.Nombre"),
+                            rs.getDouble("cal.Calificacion"),
+                            rs.getString("cal.Materia"),
+                            rs.getString("cal.Nivel"),
+                            rs.getString("us.Nombre")});
+
+                    }
+                    lista.setModel(modelo);
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+                }
+            }
+        } else {
+            String sql = "";
+            switch (opcion) {
+                case 1:
+                    sql = "SELECT  cal.Nombre, cal.Cedula_Estudiante, cal.Materia ,cal.Calificacion,cal.Nivel ,us.Nombre FROM Usuario as us, Calificacion_Materia as cal where cal.Cedula_Usuario=us.Cedula_Usuario Order by cal.Nombre ASC";
+                    break;
+
+                case 2:
+                    sql = "SELECT  cal.Nombre, cal.Cedula_Estudiante, cal.Materia ,cal.Calificacion,cal.Nivel ,us.Nombre FROM Usuario as us, Calificacion_Materia as cal where cal.Cedula_Usuario=us.Cedula_Usuario AND cal.Calificacion<3 Order by cal.Nombre ASC";
+                    break;
+                case 3:
+                    sql = "select cal.Cedula_Estudiante,cal.Nombre,cal.Nivel,sum(case when cal.Calificacion <= 3 then 1 else 0 end) as 'Cantidad' from Calificacion_Materia as cal group by cal.Cedula_Estudiante";
+                    break;
+            }
+            if (opcion == 3) {
+
+                try {
+                    conectar conecta = new conectar();
+                    Connection con = conecta.getConexion();
+                    DefaultTableModel modelo = new DefaultTableModel();
+
+                    modelo.addColumn("Cedula");
+                    modelo.addColumn("Nombre");
+                    modelo.addColumn("Nivel");
+                    modelo.addColumn("Cantidad");
+                    modelo.addColumn("Materias");
+                    Statement pst = con.createStatement();
+                    ResultSet rs = pst.executeQuery(sql);
+                    String ced, nom, niv, mat = "";
+                    int cant;
+                    int id;
+
+                    while (rs.next()) {
+                        ced = rs.getString("cal.Cedula_Estudiante");
+                        nom = rs.getString("cal.Nombre");
+                        niv = rs.getString("cal.Nivel");
+                        cant = rs.getInt("Cantidad");
+                        if (cant <= 3) {
+                            String sql2 = " SELECT Materia from Calificacion_Materia where Cedula_Estudiante='" + ced + "'";
+                            mat = "";
+                            conectar conecta2 = new conectar();
+                            Connection con2 = conecta2.getConexion();
+                            Statement pst2 = con2.createStatement();
+                            ResultSet rs2 = pst2.executeQuery(sql2);
+                            while (rs2.next()) {
+                                mat += rs2.getString("cal.Materia") + ", ";
+                            }
+
+                        }
+
+                        modelo.addRow(new Object[]{ced, nom, niv, cant, mat});
+                    }
+                    lista.setModel(modelo);
+
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+                }
+
+            } else {
+                DefaultTableModel modelo = new DefaultTableModel();
+                String Estudiante;
+                Estudiante = txtBuscar.getText();
+                conectar conecta = new conectar();
+                Connection con = conecta.getConexion();
+
+                try {
+
+                    Statement pst = con.createStatement();
+                    ResultSet rs = pst.executeQuery(sql);
+
+                    modelo.setColumnIdentifiers(new Object[]{"Cedula", "Nombre", "Materia", "Calificacion", "Nivel", "Docente"});
+
+                    while (rs.next()) {
+                        modelo.addRow(new Object[]{
+                            rs.getString("cal.Cedula_Estudiante"),
+                            rs.getString("cal.Nombre"),
+                            rs.getDouble("cal.Calificacion"),
+                            rs.getString("cal.Materia"),
+                            rs.getString("cal.Nivel"),
+                            rs.getString("us.Nombre")});
+
+                    }
+                    lista.setModel(modelo);
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
+
+                }
+            }
         }
     }
 
