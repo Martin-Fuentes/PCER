@@ -103,15 +103,16 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
 
                 while (rs.next()) {
                     modelo.addRow(new Object[]{
-                        rs.getString("Cedula_Estudiante"),
-                        rs.getString("Nombre"),
-                        rs.getDouble("Calificacion"),
-                        rs.getString("Materia"),
-                        rs.getString("Nivel"),
-                        rs.getString("Usuario.Nombre")});
+                        rs.getString("cal.Cedula_Estudiante"),
+                        rs.getString("cal.Nombre"),
+                        rs.getDouble("cal.Calificacion"),
+                        rs.getString("cal.Materia"),
+                        rs.getString("cal.Nivel"),
+                        rs.getString("us.Nombre")});
 
-                    lista.setModel(modelo);
+                   
                 }
+                 lista.setModel(modelo);
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, "Error de conexión:" + e.getMessage());
 
