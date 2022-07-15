@@ -66,7 +66,7 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
                     niv = rs.getString("cal.Nivel");
                     cant = rs.getInt("Cantidad");
                     if(cant<=3){
-                        String sql2=" SELECT cal.Materia from Calificacion_Materia cal where cal.Cedula_Estudiante='"+ced+"'";
+                        String sql2=" SELECT cal.Materia from Calificacion_Materia as cal where cal.Cedula_Estudiante='"+ced+"'";
                         mat="";
                         conectar conecta2 = new conectar();
                         Connection con2 = conecta2.getConexion();
