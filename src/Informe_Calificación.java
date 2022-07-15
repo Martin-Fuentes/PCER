@@ -76,7 +76,7 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
                         Statement pst2 = con2.createStatement();
                         ResultSet rs2 = pst2.executeQuery(sql2);
                         while (rs2.next()) {
-                            mat += rs2.getString("cal.Materia") + ", ";
+                            mat += rs2.getString("Materia") + ", ";
                         }
 
                     }
@@ -170,7 +170,7 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
                             Statement pst2 = con2.createStatement();
                             ResultSet rs2 = pst2.executeQuery(sql2);
                             while (rs2.next()) {
-                                mat += rs2.getString("cal.Materia") + ", ";
+                                mat += rs2.getString("Materia") + ", ";
                             }
 
                         }
@@ -259,7 +259,7 @@ public class Informe_Calificación extends javax.swing.JFrame implements Printab
                             Statement pst2 = con2.createStatement();
                             ResultSet rs2 = pst2.executeQuery(sql2);
                             while (rs2.next()) {
-                                mat += rs2.getString("cal.Materia") + ", ";
+                                mat += rs2.getString("Materia") + ", ";
                             }
 
                         }
